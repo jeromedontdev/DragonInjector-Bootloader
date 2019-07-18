@@ -1,4 +1,4 @@
-This fork is a work in progress that adds support for the ATSAMD21E16C WLCSP35 variant.
+##This fork is a work in progress that adds support for the ATSAMD21E16C WLCSP35 variant as part of the DragonInjector projest.
 
 # UF2 Bootloader
 
