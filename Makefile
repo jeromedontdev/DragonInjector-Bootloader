@@ -52,7 +52,7 @@ INCLUDES += -I$(BUILD_PATH)
 
 
 ifeq ($(CHIP_FAMILY), samd21)
-INCLUDES += -Ilib/samd21/samd21a/include/
+INCLUDES += -Ilib/samd21/samd21c/include/
 endif
 
 ifeq ($(CHIP_FAMILY), samd51)
