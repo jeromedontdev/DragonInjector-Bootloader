@@ -6,10 +6,10 @@
 #define VOLUME_LABEL "DRAGONBOOT"
 #define INDEX_URL "https://dragoninjector.com"
 
-#define USB_VID 0x03EB   // Atmel
-#define USB_PID 0x2402   // Generic HID device
+#define USB_VID 0x04D8   // Atmel VID
+#define USB_PID 0xED11   // DragonInjector Licensed PID
 
-#define BOARD_ID "DragonInjector_V17"
+#define BOARD_ID "DragonInjector_V19"
 
 #define LED_PIN PIN_PA07
 
