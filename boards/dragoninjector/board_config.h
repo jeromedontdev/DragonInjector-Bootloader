@@ -4,6 +4,7 @@
 #define VENDOR_NAME "DragonInjector"
 #define PRODUCT_NAME "DragonInjector"
 #define VOLUME_LABEL "DRAGONBOOT"
+#define INDEX_URL "https://dragoninjector.com"
 
 #define USB_VID 0x03EB   // Atmel
 #define USB_PID 0x2402   // Generic HID device

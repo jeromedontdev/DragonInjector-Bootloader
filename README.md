@@ -1,5 +1,7 @@
 ## This fork is a work in progress that adds support for the ATSAMD21E16C WLCSP35 variant as part of the DragonInjector project.
 
+To build, run `make BOARD=dragoninjector`.
+
 # UF2 Bootloader
 
 This repository contains a bootloader, derived from Atmel's SAM-BA,
