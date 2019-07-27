@@ -52,7 +52,7 @@ INCLUDES += -I$(BUILD_PATH)
 
 
 ifeq ($(CHIP_FAMILY), samd21)
-INCLUDES += -Ilib/samd21/samd21c/include/
+INCLUDES += -Ilib/samd21/samd21a/include/
 endif
 
 ifeq ($(CHIP_FAMILY), samd51)
@@ -87,10 +87,10 @@ SELF_SOURCES = $(COMMON_SRC) \
 OBJECTS = $(patsubst src/%.c,$(BUILD_PATH)/%.o,$(SOURCES))
 SELF_OBJECTS = $(patsubst src/%.c,$(BUILD_PATH)/%.o,$(SELF_SOURCES)) $(BUILD_PATH)/selfdata.o
 
-NAME=bootloader-$(BOARD)-$(UF2_VERSION_BASE)
+NAME="DragonInjector_UF2_Bootloader_V1_1"
 EXECUTABLE=$(BUILD_PATH)/$(NAME).bin
-SELF_EXECUTABLE=$(BUILD_PATH)/update-$(NAME).uf2
-SELF_EXECUTABLE_INO=$(BUILD_PATH)/update-$(NAME).ino
+SELF_EXECUTABLE=$(BUILD_PATH)/Update_$(NAME).uf2
+SELF_EXECUTABLE_INO=$(BUILD_PATH)/Update_$(NAME).ino
 
 SUBMODULES = lib/uf2/README.md
 

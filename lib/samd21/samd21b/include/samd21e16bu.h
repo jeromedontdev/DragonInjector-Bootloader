@@ -526,6 +526,7 @@ void I2S_Handler                 ( void );
 #define FLASH_PAGE_SIZE       64
 #define FLASH_NB_OF_PAGES     1024
 #define FLASH_USER_PAGE_SIZE  64
+#define FLASH_NUM_ROWS        256
 #define HMCRAMC0_SIZE         _UL(0x00002000) /* 8 kB */
 
 #define FLASH_ADDR            _UL(0x00000000) /**< FLASH base address */

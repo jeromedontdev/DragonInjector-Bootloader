@@ -73,7 +73,7 @@
 #define USE_SINGLE_RESET 1
 
 // Fine-tuning of features
-#define USE_HID_SERIAL 0   // just an example, not really needed; 36 bytes
+#define USE_HID_SERIAL 1   // just an example, not really needed; 36 bytes
 #define USE_HID_EXT 1      // extended HID commands (read/write mem); 60 bytes
 #define USE_HID_HANDOVER 1 // allow HID application->bootloader seamless transition; 56 bytes
 #define USE_MSC_HANDOVER 1 // ditto for MSC; 348 bytes

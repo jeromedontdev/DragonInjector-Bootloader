@@ -532,11 +532,11 @@ void I2S_Handler                 ( void );
 /**  MEMORY MAPPING DEFINITIONS FOR SAMD21G18A */
 /* ************************************************************************** */
 
-#define FLASH_SIZE            _UL(0x00040000) /* 256 kB */
+#define FLASH_SIZE            _UL(0x00040000) /* 64 kB */
 #define FLASH_PAGE_SIZE       64
 #define FLASH_NB_OF_PAGES     4096
 #define FLASH_USER_PAGE_SIZE  64
-#define HMCRAMC0_SIZE         _UL(0x00008000) /* 32 kB */
+#define HMCRAMC0_SIZE         _UL(0x00008000) /* 8 kB */
 
 #define FLASH_ADDR            _UL(0x00000000) /**< FLASH base address */
 #define FLASH_USER_PAGE_ADDR  _UL(0x00800000) /**< FLASH_USER_PAGE base address */
