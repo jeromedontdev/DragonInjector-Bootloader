@@ -147,7 +147,7 @@ logs:
 	node scripts/dbgtool.js $(BUILD_PATH)/$(NAME).map
 
 selflogs:
-	node scripts/dbgtool.js $(BUILD_PATH)/update-$(NAME).map
+	node scripts/dbgtool.js $(BUILD_PATH)/Update_$(NAME).map
 
 dirs:
 	@echo "Building $(BOARD)"
@@ -168,9 +168,9 @@ $(BUILD_PATH)/uf2_version.h: Makefile
 $(SELF_EXECUTABLE): $(SELF_OBJECTS)
 	$(CC) -L$(BUILD_PATH) $(LDFLAGS) \
 		 -T$(SELF_LINKER_SCRIPT) \
-		 -Wl,-Map,$(BUILD_PATH)/update-$(NAME).map -o $(BUILD_PATH)/update-$(NAME).elf $(SELF_OBJECTS)
-	arm-none-eabi-objcopy -O binary $(BUILD_PATH)/update-$(NAME).elf $(BUILD_PATH)/update-$(NAME).bin
-	python2 lib/uf2/utils/uf2conv.py -b $(BOOTLOADER_SIZE) -c -o $@ $(BUILD_PATH)/update-$(NAME).bin
+		 -Wl,-Map,$(BUILD_PATH)/Update_$(NAME).map -o $(BUILD_PATH)/Update_$(NAME).elf $(SELF_OBJECTS)
+	arm-none-eabi-objcopy -O binary $(BUILD_PATH)/Update_$(NAME).elf $(BUILD_PATH)/Update_$(NAME).bin
+	python2 lib/uf2/utils/uf2conv.py -b $(BOOTLOADER_SIZE) -c -o $@ $(BUILD_PATH)/Update_$(NAME).bin
 
 $(BUILD_PATH)/%.o: src/%.c $(wildcard inc/*.h boards/*/*.h) $(BUILD_PATH)/uf2_version.h
 	echo "$<"
