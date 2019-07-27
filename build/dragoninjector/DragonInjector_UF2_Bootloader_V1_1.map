@@ -1,0 +1,1083 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+                              build/dragoninjector/hid.o (__gnu_thumb1_case_uqi)
+/usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+                              build/dragoninjector/cdc_enumerate.o (memcpy)
+/usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+                              build/dragoninjector/cdc_enumerate.o (memset)
+/usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+                              build/dragoninjector/cdc_enumerate.o (strlen)
+
+Allocating common symbols
+Common symbol       size              file
+
+b_sharp_received    0x1               build/dragoninjector/usart_sam_ba.o
+timerHigh           0x4               build/dragoninjector/utils.o
+j                   0x1               build/dragoninjector/sam_ba_monitor.o
+idx_rx_write        0x1               build/dragoninjector/usart_sam_ba.o
+size_of_data        0x2               build/dragoninjector/usart_sam_ba.o
+ctrlOutCache        0x44              build/dragoninjector/cdc_enumerate.o
+length              0x4               build/dragoninjector/sam_ba_monitor.o
+ptr                 0x4               build/dragoninjector/sam_ba_monitor.o
+command             0x1               build/dragoninjector/sam_ba_monitor.o
+resetHorizon        0x4               build/dragoninjector/utils.o
+idx_tx_read         0x1               build/dragoninjector/usart_sam_ba.o
+i                   0x4               build/dragoninjector/sam_ba_monitor.o
+buffer_tx_usart     0x80              build/dragoninjector/usart_sam_ba.o
+error_timeout       0x1               build/dragoninjector/usart_sam_ba.o
+usb_endpoint_table  0x100             build/dragoninjector/cdc_enumerate.o
+data                0x41              build/dragoninjector/sam_ba_monitor.o
+mode_of_transfer    0x1               build/dragoninjector/usart_sam_ba.o
+ptr_data            0x4               build/dragoninjector/sam_ba_monitor.o
+idx_rx_read         0x1               build/dragoninjector/usart_sam_ba.o
+sp                  0x4               build/dragoninjector/sam_ba_monitor.o
+current_number      0x4               build/dragoninjector/sam_ba_monitor.o
+idx_tx_write        0x1               build/dragoninjector/usart_sam_ba.o
+endpointCache       0x220             build/dragoninjector/cdc_enumerate.o
+u32tmp              0x4               build/dragoninjector/sam_ba_monitor.o
+buffer_rx_usart     0x80              build/dragoninjector/usart_sam_ba.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 build/dragoninjector/flash_samd21.o
+ .data          0x00000000        0x0 build/dragoninjector/flash_samd21.o
+ .bss           0x00000000        0x0 build/dragoninjector/flash_samd21.o
+ .text.flash_write
+                0x00000000       0x8c build/dragoninjector/flash_samd21.o
+ .text          0x00000000        0x0 build/dragoninjector/init_samd21.o
+ .data          0x00000000        0x0 build/dragoninjector/init_samd21.o
+ .bss           0x00000000        0x0 build/dragoninjector/init_samd21.o
+ .data.g_interrupt_enabled
+                0x00000000        0x1 build/dragoninjector/init_samd21.o
+ .text          0x00000000        0x0 build/dragoninjector/startup_samd21.o
+ .data          0x00000000        0x0 build/dragoninjector/startup_samd21.o
+ .bss           0x00000000        0x0 build/dragoninjector/startup_samd21.o
+ .text          0x00000000        0x0 build/dragoninjector/usart_sam_ba.o
+ .data          0x00000000        0x0 build/dragoninjector/usart_sam_ba.o
+ .bss           0x00000000        0x0 build/dragoninjector/usart_sam_ba.o
+ .text.usart_open
+                0x00000000       0xc0 build/dragoninjector/usart_sam_ba.o
+ .text.usart_close
+                0x00000000       0x10 build/dragoninjector/usart_sam_ba.o
+ .text.usart_putc
+                0x00000000       0x14 build/dragoninjector/usart_sam_ba.o
+ .text.usart_is_rx_ready
+                0x00000000       0x10 build/dragoninjector/usart_sam_ba.o
+ .text.usart_getc
+                0x00000000       0x18 build/dragoninjector/usart_sam_ba.o
+ .text.usart_sharp_received
+                0x00000000       0x1a build/dragoninjector/usart_sam_ba.o
+ .text.usart_readc
+                0x00000000       0x20 build/dragoninjector/usart_sam_ba.o
+ .text.usart_putdata
+                0x00000000       0x1a build/dragoninjector/usart_sam_ba.o
+ .text.usart_getdata
+                0x00000000        0xe build/dragoninjector/usart_sam_ba.o
+ .text.getbytes
+                0x00000000       0x68 build/dragoninjector/usart_sam_ba.o
+ .text.getPacket
+                0x00000000       0x70 build/dragoninjector/usart_sam_ba.o
+ .text.usart_putdata_xmd
+                0x00000000      0x118 build/dragoninjector/usart_sam_ba.o
+ .text.usart_getdata_xmd
+                0x00000000       0xa0 build/dragoninjector/usart_sam_ba.o
+ COMMON         0x00000000      0x109 build/dragoninjector/usart_sam_ba.o
+ .text          0x00000000        0x0 build/dragoninjector/screen.o
+ .data          0x00000000        0x0 build/dragoninjector/screen.o
+ .bss           0x00000000        0x0 build/dragoninjector/screen.o
+ .debug_info    0x00000000       0x72 build/dragoninjector/screen.o
+ .debug_abbrev  0x00000000       0x26 build/dragoninjector/screen.o
+ .debug_aranges
+                0x00000000       0x18 build/dragoninjector/screen.o
+ .debug_line    0x00000000       0x1d build/dragoninjector/screen.o
+ .debug_str     0x00000000      0x155 build/dragoninjector/screen.o
+ .comment       0x00000000       0x2c build/dragoninjector/screen.o
+ .ARM.attributes
+                0x00000000       0x32 build/dragoninjector/screen.o
+ .text          0x00000000        0x0 build/dragoninjector/images.o
+ .data          0x00000000        0x0 build/dragoninjector/images.o
+ .bss           0x00000000        0x0 build/dragoninjector/images.o
+ .rodata.pendriveLogo
+                0x00000000       0x3e build/dragoninjector/images.o
+ .rodata.arrowLogo
+                0x00000000       0x39 build/dragoninjector/images.o
+ .rodata.fileLogo
+                0x00000000       0x4a build/dragoninjector/images.o
+ .rodata.font8  0x00000000      0x240 build/dragoninjector/images.o
+ .debug_info    0x00000000      0x11f build/dragoninjector/images.o
+ .debug_abbrev  0x00000000       0x66 build/dragoninjector/images.o
+ .debug_aranges
+                0x00000000       0x18 build/dragoninjector/images.o
+ .debug_line    0x00000000       0x82 build/dragoninjector/images.o
+ .debug_str     0x00000000      0x188 build/dragoninjector/images.o
+ .comment       0x00000000       0x2c build/dragoninjector/images.o
+ .ARM.attributes
+                0x00000000       0x32 build/dragoninjector/images.o
+ .text          0x00000000        0x0 build/dragoninjector/utils.o
+ .data          0x00000000        0x0 build/dragoninjector/utils.o
+ .bss           0x00000000        0x0 build/dragoninjector/utils.o
+ .text.panic    0x00000000        0x2 build/dragoninjector/utils.o
+ .text          0x00000000        0x0 build/dragoninjector/cdc_enumerate.o
+ .data          0x00000000        0x0 build/dragoninjector/cdc_enumerate.o
+ .bss           0x00000000        0x0 build/dragoninjector/cdc_enumerate.o
+ .text.reset_ep
+                0x00000000       0x24 build/dragoninjector/cdc_enumerate.o
+ .text.stall_ep
+                0x00000000       0x20 build/dragoninjector/cdc_enumerate.o
+ .text.cdc_is_rx_ready
+                0x00000000       0x20 build/dragoninjector/cdc_enumerate.o
+ .text          0x00000000        0x0 build/dragoninjector/fat.o
+ .data          0x00000000        0x0 build/dragoninjector/fat.o
+ .bss           0x00000000        0x0 build/dragoninjector/fat.o
+ .text          0x00000000        0x0 build/dragoninjector/main.o
+ .data          0x00000000        0x0 build/dragoninjector/main.o
+ .bss           0x00000000        0x0 build/dragoninjector/main.o
+ .text          0x00000000        0x0 build/dragoninjector/msc.o
+ .data          0x00000000        0x0 build/dragoninjector/msc.o
+ .bss           0x00000000        0x0 build/dragoninjector/msc.o
+ .text.msc_reset
+                0x00000000       0x1c build/dragoninjector/msc.o
+ .text.udd_ep_set_halt
+                0x00000000       0x10 build/dragoninjector/msc.o
+ .bss.mscReset  0x00000000        0x1 build/dragoninjector/msc.o
+ .text          0x00000000        0x0 build/dragoninjector/sam_ba_monitor.o
+ .data          0x00000000        0x0 build/dragoninjector/sam_ba_monitor.o
+ .bss           0x00000000        0x0 build/dragoninjector/sam_ba_monitor.o
+ .text.sam_ba_monitor_init
+                0x00000000        0x2 build/dragoninjector/sam_ba_monitor.o
+ .text.sam_ba_putdata_term
+                0x00000000        0x8 build/dragoninjector/sam_ba_monitor.o
+ .text          0x00000000        0x0 build/dragoninjector/uart_driver.o
+ .data          0x00000000        0x0 build/dragoninjector/uart_driver.o
+ .bss           0x00000000        0x0 build/dragoninjector/uart_driver.o
+ .text.uart_get_sercom_index
+                0x00000000       0x30 build/dragoninjector/uart_driver.o
+ .text.uart_basic_init
+                0x00000000       0x58 build/dragoninjector/uart_driver.o
+ .text.uart_disable
+                0x00000000       0x10 build/dragoninjector/uart_driver.o
+ .text.uart_write_byte
+                0x00000000        0xc build/dragoninjector/uart_driver.o
+ .text.uart_read_byte
+                0x00000000       0x28 build/dragoninjector/uart_driver.o
+ .text.uart_write_buffer_polled
+                0x00000000       0x20 build/dragoninjector/uart_driver.o
+ .text.uart_read_buffer_polled
+                0x00000000       0x3c build/dragoninjector/uart_driver.o
+ .rodata        0x00000000       0x10 build/dragoninjector/uart_driver.o
+ .bss.uart_drv_error_flag
+                0x00000000        0x1 build/dragoninjector/uart_driver.o
+ .debug_info    0x00000000     0x1e97 build/dragoninjector/uart_driver.o
+ .debug_abbrev  0x00000000      0x1c9 build/dragoninjector/uart_driver.o
+ .debug_loc     0x00000000      0x14e build/dragoninjector/uart_driver.o
+ .debug_aranges
+                0x00000000       0x50 build/dragoninjector/uart_driver.o
+ .debug_ranges  0x00000000       0x58 build/dragoninjector/uart_driver.o
+ .debug_line    0x00000000      0x1fa build/dragoninjector/uart_driver.o
+ .debug_str     0x00000000      0x9c5 build/dragoninjector/uart_driver.o
+ .comment       0x00000000       0x2c build/dragoninjector/uart_driver.o
+ .debug_frame   0x00000000       0xb0 build/dragoninjector/uart_driver.o
+ .ARM.attributes
+                0x00000000       0x32 build/dragoninjector/uart_driver.o
+ .text          0x00000000        0x0 build/dragoninjector/hid.o
+ .data          0x00000000        0x0 build/dragoninjector/hid.o
+ .bss           0x00000000        0x0 build/dragoninjector/hid.o
+ .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+ .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00002000         xr
+ram              0x20000000         0x00002000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD build/dragoninjector/flash_samd21.o
+LOAD build/dragoninjector/init_samd21.o
+LOAD build/dragoninjector/startup_samd21.o
+LOAD build/dragoninjector/usart_sam_ba.o
+LOAD build/dragoninjector/screen.o
+LOAD build/dragoninjector/images.o
+LOAD build/dragoninjector/utils.o
+LOAD build/dragoninjector/cdc_enumerate.o
+LOAD build/dragoninjector/fat.o
+LOAD build/dragoninjector/main.o
+LOAD build/dragoninjector/msc.o
+LOAD build/dragoninjector/sam_ba_monitor.o
+LOAD build/dragoninjector/uart_driver.o
+LOAD build/dragoninjector/hid.o
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a
+LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libc_nano.a
+END GROUP
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libc_nano.a
+LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libnosys.a
+END GROUP
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libc_nano.a
+LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libnosys.a
+END GROUP
+                0x00001000                STACK_SIZE = DEFINED (STACK_SIZE)?STACK_SIZE:DEFINED (__stack_size__)?__stack_size__:0x1000
+
+.text           0x00000000     0x1dd0
+                0x00000000                . = ALIGN (0x4)
+                0x00000000                _sfixed = .
+ *(.vectors .vectors.*)
+ .vectors       0x00000000       0xb4 build/dragoninjector/startup_samd21.o
+                0x00000000                exception_table
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text.flash_erase_row
+                0x000000b4       0x28 build/dragoninjector/flash_samd21.o
+                0x000000b4                flash_erase_row
+ .text.flash_erase_to_end
+                0x000000dc       0x1c build/dragoninjector/flash_samd21.o
+                0x000000dc                flash_erase_to_end
+ .text.copy_words
+                0x000000f8       0x14 build/dragoninjector/flash_samd21.o
+                0x000000f8                copy_words
+ .text.flash_write_words
+                0x0000010c       0x54 build/dragoninjector/flash_samd21.o
+                0x0000010c                flash_write_words
+ .text.flash_write_row
+                0x00000160       0x2e build/dragoninjector/flash_samd21.o
+                0x00000160                flash_write_row
+ *fill*         0x0000018e        0x2 
+ .text.gclk_sync
+                0x00000190       0x10 build/dragoninjector/init_samd21.o
+ .text.dfll_sync
+                0x000001a0       0x10 build/dragoninjector/init_samd21.o
+ .text.system_init
+                0x000001b0       0xcc build/dragoninjector/init_samd21.o
+                0x000001b0                system_init
+ .text.SysTick_Handler
+                0x0000027c        0x8 build/dragoninjector/init_samd21.o
+                0x0000027c                SysTick_Handler
+ .text.Dummy_Handler
+                0x00000284        0x2 build/dragoninjector/startup_samd21.o
+                0x00000284                DMAC_Handler
+                0x00000284                AC_Handler
+                0x00000284                PendSV_Handler
+                0x00000284                NMI_Handler
+                0x00000284                SERCOM1_Handler
+                0x00000284                ADC_Handler
+                0x00000284                TCC1_Handler
+                0x00000284                SERCOM2_Handler
+                0x00000284                TCC0_Handler
+                0x00000284                RTC_Handler
+                0x00000284                EIC_Handler
+                0x00000284                WDT_Handler
+                0x00000284                TC4_Handler
+                0x00000284                USB_Handler
+                0x00000284                TC3_Handler
+                0x00000284                Dummy_Handler
+                0x00000284                PM_Handler
+                0x00000284                SVC_Handler
+                0x00000284                TCC2_Handler
+                0x00000284                EVSYS_Handler
+                0x00000284                SERCOM3_Handler
+                0x00000284                I2S_Handler
+                0x00000284                NVMCTRL_Handler
+                0x00000284                SERCOM0_Handler
+                0x00000284                DAC_Handler
+                0x00000284                PTC_Handler
+                0x00000284                TC5_Handler
+                0x00000284                SYSCTRL_Handler
+ .text.HardFault_Handler
+                0x00000286        0x2 build/dragoninjector/startup_samd21.o
+                0x00000286                HardFault_Handler
+ .text.Reset_Handler
+                0x00000288       0xb0 build/dragoninjector/startup_samd21.o
+                0x00000288                Reset_Handler
+ .text.add_crc  0x00000338       0x54 build/dragoninjector/usart_sam_ba.o
+                0x00000338                add_crc
+ .text.delay    0x0000038c       0x10 build/dragoninjector/utils.o
+                0x0000038c                delay
+ .text.writeNum
+                0x0000039c       0x3c build/dragoninjector/utils.o
+                0x0000039c                writeNum
+ .text.resetIntoApp
+                0x000003d8       0x28 build/dragoninjector/utils.o
+                0x000003d8                resetIntoApp
+ .text.timerTick
+                0x00000400       0x40 build/dragoninjector/utils.o
+                0x00000400                timerTick
+ .text.resetIntoBootloader
+                0x00000440       0x28 build/dragoninjector/utils.o
+                0x00000440                resetIntoBootloader
+ .text.led_tick
+                0x00000468       0x7c build/dragoninjector/utils.o
+                0x00000468                led_tick
+ .text.led_signal
+                0x000004e4       0x28 build/dragoninjector/utils.o
+                0x000004e4                led_signal
+ .text.led_init
+                0x0000050c       0x10 build/dragoninjector/utils.o
+                0x0000050c                led_init
+ .text.RGBLED_set_color
+                0x0000051c        0x2 build/dragoninjector/utils.o
+                0x0000051c                RGBLED_set_color
+ *fill*         0x0000051e        0x2 
+ .text.AT91F_InitUSB
+                0x00000520      0x108 build/dragoninjector/cdc_enumerate.o
+                0x00000520                AT91F_InitUSB
+ .text.USB_ReadCore
+                0x00000628       0xe0 build/dragoninjector/cdc_enumerate.o
+                0x00000628                USB_ReadCore
+ .text.USB_Read
+                0x00000708        0xa build/dragoninjector/cdc_enumerate.o
+                0x00000708                USB_Read
+ .text.USB_ReadBlocking
+                0x00000712       0x22 build/dragoninjector/cdc_enumerate.o
+                0x00000712                USB_ReadBlocking
+ .text.USB_WriteCore
+                0x00000734       0x98 build/dragoninjector/cdc_enumerate.o
+                0x00000734                USB_WriteCore
+ .text.USB_Write
+                0x000007cc        0xa build/dragoninjector/cdc_enumerate.o
+                0x000007cc                USB_Write
+ *fill*         0x000007d6        0x2 
+ .text.sendCtrl
+                0x000007d8       0x1c build/dragoninjector/cdc_enumerate.o
+ .text.AT91F_USB_SendZlp
+                0x000007f4       0x10 build/dragoninjector/cdc_enumerate.o
+                0x000007f4                AT91F_USB_SendZlp
+ .text.USB_Ok   0x00000804      0x514 build/dragoninjector/cdc_enumerate.o
+                0x00000804                USB_Ok
+ .text.usb_init
+                0x00000d18       0x20 build/dragoninjector/cdc_enumerate.o
+                0x00000d18                usb_init
+ .text.cdc_write_buf
+                0x00000d38        0xe build/dragoninjector/cdc_enumerate.o
+                0x00000d38                cdc_write_buf
+ .text.cdc_write_buf_xmd
+                0x00000d46        0xe build/dragoninjector/cdc_enumerate.o
+                0x00000d46                cdc_write_buf_xmd
+ .text.cdc_read_buf
+                0x00000d54       0x1e build/dragoninjector/cdc_enumerate.o
+                0x00000d54                cdc_read_buf
+ .text.cdc_read_buf_xmd
+                0x00000d72       0x20 build/dragoninjector/cdc_enumerate.o
+                0x00000d72                cdc_read_buf_xmd
+ .text.padded_memcpy
+                0x00000d92       0x20 build/dragoninjector/fat.o
+                0x00000d92                padded_memcpy
+ *fill*         0x00000db2        0x2 
+ .text.read_block
+                0x00000db4      0x168 build/dragoninjector/fat.o
+                0x00000db4                read_block
+ .text.write_block
+                0x00000f1c       0xe8 build/dragoninjector/fat.o
+                0x00000f1c                write_block
+ .text.startup.main
+                0x00001004      0x120 build/dragoninjector/main.o
+                0x00001004                main
+ .text.udi_msc_clear_sense
+                0x00001124       0x1c build/dragoninjector/msc.o
+ .text.handover_flash
+                0x00001140       0x34 build/dragoninjector/msc.o
+ .text.try_read_cbw
+                0x00001174       0x2c build/dragoninjector/msc.o
+                0x00001174                try_read_cbw
+ .text.udi_msc_csw_send
+                0x000011a0       0x14 build/dragoninjector/msc.o
+                0x000011a0                udi_msc_csw_send
+ .text.udi_msc_csw_process
+                0x000011b4       0x38 build/dragoninjector/msc.o
+ .text.udi_msc_data_send
+                0x000011ec       0x70 build/dragoninjector/msc.o
+ .text.udi_msc_spc_mode_sense
+                0x0000125c       0x70 build/dragoninjector/msc.o
+ .text.udi_msc_sbc_trans
+                0x000012cc       0xc4 build/dragoninjector/msc.o
+ .text.process_msc
+                0x00001390      0x158 build/dragoninjector/msc.o
+                0x00001390                process_msc
+ .text.handoverPrep
+                0x000014e8       0x24 build/dragoninjector/msc.o
+                0x000014e8                handoverPrep
+ .text.handover
+                0x0000150c       0xe4 build/dragoninjector/msc.o
+ .text.call_applet
+                0x000015f0       0x20 build/dragoninjector/sam_ba_monitor.o
+                0x000015f0                call_applet
+ .text.put_uint32
+                0x00001610       0x16 build/dragoninjector/sam_ba_monitor.o
+                0x00001610                put_uint32
+ *fill*         0x00001626        0x2 
+ .text.sam_ba_monitor_run
+                0x00001628      0x264 build/dragoninjector/sam_ba_monitor.o
+                0x00001628                sam_ba_monitor_run
+ .text.recv_hf2
+                0x0000188c       0x56 build/dragoninjector/hid.o
+                0x0000188c                recv_hf2
+ .text.send_hf2
+                0x000018e2       0x46 build/dragoninjector/hid.o
+                0x000018e2                send_hf2
+ .text.send_hf2_response
+                0x00001928       0x14 build/dragoninjector/hid.o
+                0x00001928                send_hf2_response
+ .text.process_core
+                0x0000193c      0x114 build/dragoninjector/hid.o
+                0x0000193c                process_core
+ .text.process_hid
+                0x00001a50       0x28 build/dragoninjector/hid.o
+                0x00001a50                process_hid
+ .text.hidHandoverLoop
+                0x00001a78       0x24 build/dragoninjector/hid.o
+                0x00001a78                hidHandoverLoop
+ .text          0x00001a9c       0x14 /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+                0x00001a9c                __gnu_thumb1_case_uqi
+ .text          0x00001ab0       0x7c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+                0x00001ab0                memcpy
+ .text          0x00001b2c       0x8c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+                0x00001b2c                memset
+ .text          0x00001bb8       0x68 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+                0x00001bb8                strlen
+ *(.glue_7t)
+ .glue_7t       0x00001c20        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x00001c20        0x0 linker stubs
+ *(.rodata .rodata* .gnu.linkonce.r.*)
+ .rodata        0x00001c20       0x10 build/dragoninjector/cdc_enumerate.o
+ .rodata.hidDescriptor
+                0x00001c30       0x21 build/dragoninjector/cdc_enumerate.o
+                0x00001c30                hidDescriptor
+ .rodata.str1.1
+                0x00001c51        0xf build/dragoninjector/cdc_enumerate.o
+ .rodata.string_descriptors
+                0x00001c60       0x10 build/dragoninjector/cdc_enumerate.o
+ .rodata.devDescriptor
+                0x00001c70       0x12 build/dragoninjector/cdc_enumerate.o
+                0x00001c70                devDescriptor
+ .rodata.indexFile
+                0x00001c82       0x6e build/dragoninjector/fat.o
+                0x00001c82                indexFile
+ .rodata.infoUf2File
+                0x00001cf0       0x25 build/dragoninjector/fat.o
+                0x00001cf0                infoUf2File
+ .rodata.BootBlock
+                0x00001d15       0x3e build/dragoninjector/fat.o
+ *fill*         0x00001d53        0x1 
+ .rodata.info   0x00001d54       0x30 build/dragoninjector/fat.o
+ .rodata        0x00001d84        0xc build/dragoninjector/msc.o
+ .rodata.str1.1
+                0x00001d90        0xf build/dragoninjector/msc.o
+ .rodata.fullVersion
+                0x00001d90       0x2a build/dragoninjector/sam_ba_monitor.o
+ .rodata.str1.1
+                0x00001dba       0x10 build/dragoninjector/sam_ba_monitor.o
+ .rodata.str1.1
+                0x00001dca        0x4 build/dragoninjector/hid.o
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x00001dd0                . = ALIGN (0x4)
+ *fill*         0x00001dce        0x2 
+ *(.init)
+                0x00001dd0                . = ALIGN (0x4)
+                0x00001dd0                __preinit_array_start = .
+ *(.preinit_array)
+                0x00001dd0                __preinit_array_end = .
+                0x00001dd0                . = ALIGN (0x4)
+                0x00001dd0                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+                0x00001dd0                __init_array_end = .
+                0x00001dd0                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x00001dd0                . = ALIGN (0x4)
+                0x00001dd0                _efixed = .
+                [!provide]                PROVIDE (__exidx_start, .)
+
+.vfp11_veneer   0x00001dd0        0x0
+ .vfp11_veneer  0x00001dd0        0x0 linker stubs
+
+.v4_bx          0x00001dd0        0x0
+ .v4_bx         0x00001dd0        0x0 linker stubs
+
+.iplt           0x00001dd0        0x0
+ .iplt          0x00001dd0        0x0 build/dragoninjector/flash_samd21.o
+
+.igot.plt       0x00001dd0        0x0
+ .igot.plt      0x00001dd0        0x0 build/dragoninjector/flash_samd21.o
+
+.rel.dyn        0x00001dd0        0x0
+ .rel.iplt      0x00001dd0        0x0 build/dragoninjector/flash_samd21.o
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                [!provide]                PROVIDE (__exidx_end, .)
+                0x00001dd0                . = ALIGN (0x4)
+                0x00001dd0                _etext = .
+
+.relocate       0x20000000      0x1d0 load address 0x00001dd0
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _srelocate = .
+ *(.ramfunc .ramfunc.*)
+ *(.data .data.*)
+ .data.led_tick_step
+                0x20000000        0x1 build/dragoninjector/utils.o
+                0x20000000                led_tick_step
+ .data.limit    0x20000001        0x1 build/dragoninjector/utils.o
+ *fill*         0x20000002        0x2 
+ .data.bosDescriptor
+                0x20000004       0x39 build/dragoninjector/cdc_enumerate.o
+ *fill*         0x2000003d        0x3 
+ .data.msOS20Descriptor
+                0x20000040       0xaa build/dragoninjector/cdc_enumerate.o
+ *fill*         0x200000ea        0x2 
+ .data.cfgDescriptor
+                0x200000ec       0x99 build/dragoninjector/cdc_enumerate.o
+                0x200000ec                cfgDescriptor
+ *fill*         0x20000185        0x3 
+ .data.line_coding
+                0x20000188        0x8 build/dragoninjector/cdc_enumerate.o
+ .data.hidCfgDescriptor
+                0x20000190        0x9 build/dragoninjector/cdc_enumerate.o
+                0x20000190                hidCfgDescriptor
+ *fill*         0x20000199        0x3 
+ .data.udi_msc_inquiry_data.12020
+                0x2000019c       0x24 build/dragoninjector/msc.o
+ .data.udi_msc_csw
+                0x200001c0        0xd build/dragoninjector/msc.o
+                0x200001d0                . = ALIGN (0x4)
+ *fill*         0x200001cd        0x3 
+                0x200001d0                _erelocate = .
+
+.bss            0x200001d0      0xba8 load address 0x00001fa0
+                0x200001d0                . = ALIGN (0x4)
+                0x200001d0                _sbss = .
+                0x200001d0                _szero = .
+ *(.bss .bss.*)
+ .bss.crcCache  0x200001d0      0x200 build/dragoninjector/usart_sam_ba.o
+ .bss.now       0x200003d0        0x4 build/dragoninjector/utils.o
+ .bss.signal_end
+                0x200003d4        0x4 build/dragoninjector/utils.o
+ .bss.timerLow  0x200003d8        0x4 build/dragoninjector/utils.o
+ .bss.currentConfiguration
+                0x200003dc        0x1 build/dragoninjector/cdc_enumerate.o
+ *fill*         0x200003dd        0x1 
+ .bss.wLength   0x200003de        0x2 build/dragoninjector/cdc_enumerate.o
+ .bss.serial_number
+                0x200003e0       0x21 build/dragoninjector/cdc_enumerate.o
+ .bss.main_b_cdc_enable
+                0x20000401        0x1 build/dragoninjector/main.o
+ *fill*         0x20000402        0x2 
+ .bss.udi_msc_capacity.12053
+                0x20000404        0x8 build/dragoninjector/msc.o
+ .bss.udi_msc_cbw
+                0x2000040c       0x1f build/dragoninjector/msc.o
+ *fill*         0x2000042b        0x1 
+ .bss.usbWriteState
+                0x2000042c       0x38 build/dragoninjector/msc.o
+ .bss.block_buffer
+                0x20000464      0x200 build/dragoninjector/msc.o
+ .bss.udi_msc_sense
+                0x20000664       0x12 build/dragoninjector/msc.o
+ *fill*         0x20000676        0x2 
+ .bss.sense.12043
+                0x20000678       0x14 build/dragoninjector/msc.o
+ .bss.src_buff_addr.11465
+                0x2000068c        0x4 build/dragoninjector/sam_ba_monitor.o
+ .bss.b_sam_ba_interface_usart
+                0x20000690        0x1 build/dragoninjector/sam_ba_monitor.o
+                0x20000690                b_sam_ba_interface_usart
+ *fill*         0x20000691        0x3 
+ .bss.hidbufData
+                0x20000694      0x188 build/dragoninjector/hid.o
+ .bss.webbufData
+                0x2000081c      0x188 build/dragoninjector/hid.o
+ *(COMMON)
+ COMMON         0x200009a4        0x8 build/dragoninjector/utils.o
+                0x200009a4                timerHigh
+                0x200009a8                resetHorizon
+ COMMON         0x200009ac      0x364 build/dragoninjector/cdc_enumerate.o
+                0x200009ac                ctrlOutCache
+                0x200009f0                usb_endpoint_table
+                0x20000af0                endpointCache
+ COMMON         0x20000d10       0x68 build/dragoninjector/sam_ba_monitor.o
+                0x20000d10                j
+                0x20000d14                length
+                0x20000d18                ptr
+                0x20000d1c                command
+                0x20000d20                i
+                0x20000d24                data
+                0x20000d68                ptr_data
+                0x20000d6c                sp
+                0x20000d70                current_number
+                0x20000d74                u32tmp
+                0x20000d78                . = ALIGN (0x4)
+                0x20000d78                _ebss = .
+                0x20000d78                _ezero = .
+
+.stack          0x20000d78     0x1000 load address 0x00002b48
+                0x20000d78                . = ALIGN (0x8)
+                0x20000d78                _sstack = .
+                0x20001d78                . = (. + STACK_SIZE)
+ *fill*         0x20000d78     0x1000 
+                0x20001d78                . = ALIGN (0x8)
+                0x20001d78                _estack = .
+                0x20001d78                . = ALIGN (0x4)
+                0x20001d78                _end = .
+                0x00001ff0                _binfo_start = 0x1ff0
+
+.binfo          0x00001ff0       0x10
+ *(.binfo)
+ .binfo         0x00001ff0       0x10 build/dragoninjector/msc.o
+                0x00001ff0                binfo
+OUTPUT(build/dragoninjector/DragonInjector_UF2_Bootloader_V1_1.elf elf32-littlearm)
+
+.debug_info     0x00000000    0x13154
+ .debug_info    0x00000000      0x74e build/dragoninjector/flash_samd21.o
+ .debug_info    0x0000074e     0x1b0b build/dragoninjector/init_samd21.o
+ .debug_info    0x00002259     0x3637 build/dragoninjector/startup_samd21.o
+ .debug_info    0x00005890     0x351c build/dragoninjector/usart_sam_ba.o
+ .debug_info    0x00008dac      0x9dd build/dragoninjector/utils.o
+ .debug_info    0x00009789     0x3c06 build/dragoninjector/cdc_enumerate.o
+ .debug_info    0x0000d38f      0x7cc build/dragoninjector/fat.o
+ .debug_info    0x0000db5b     0x111f build/dragoninjector/main.o
+ .debug_info    0x0000ec7a     0x30ee build/dragoninjector/msc.o
+ .debug_info    0x00011d68      0x5c6 build/dragoninjector/sam_ba_monitor.o
+ .debug_info    0x0001232e      0xa29 build/dragoninjector/hid.o
+ .debug_info    0x00012d57       0xb9 /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .debug_info    0x00012e10      0x142 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_info    0x00012f52      0x11e /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .debug_info    0x00013070       0xe4 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+
+.debug_abbrev   0x00000000     0x2063
+ .debug_abbrev  0x00000000      0x1b5 build/dragoninjector/flash_samd21.o
+ .debug_abbrev  0x000001b5      0x245 build/dragoninjector/init_samd21.o
+ .debug_abbrev  0x000003fa      0x261 build/dragoninjector/startup_samd21.o
+ .debug_abbrev  0x0000065b      0x3a3 build/dragoninjector/usart_sam_ba.o
+ .debug_abbrev  0x000009fe      0x29f build/dragoninjector/utils.o
+ .debug_abbrev  0x00000c9d      0x3ce build/dragoninjector/cdc_enumerate.o
+ .debug_abbrev  0x0000106b      0x225 build/dragoninjector/fat.o
+ .debug_abbrev  0x00001290      0x27f build/dragoninjector/main.o
+ .debug_abbrev  0x0000150f      0x471 build/dragoninjector/msc.o
+ .debug_abbrev  0x00001980      0x245 build/dragoninjector/sam_ba_monitor.o
+ .debug_abbrev  0x00001bc5      0x2b8 build/dragoninjector/hid.o
+ .debug_abbrev  0x00001e7d       0x14 /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .debug_abbrev  0x00001e91       0xb2 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_abbrev  0x00001f43       0x9f /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .debug_abbrev  0x00001fe2       0x81 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+
+.debug_loc      0x00000000     0x2b7d
+ .debug_loc     0x00000000      0x383 build/dragoninjector/flash_samd21.o
+ .debug_loc     0x00000383       0x78 build/dragoninjector/init_samd21.o
+ .debug_loc     0x000003fb       0x2b build/dragoninjector/startup_samd21.o
+ .debug_loc     0x00000426      0x73b build/dragoninjector/usart_sam_ba.o
+ .debug_loc     0x00000b61       0xed build/dragoninjector/utils.o
+ .debug_loc     0x00000c4e      0x94e build/dragoninjector/cdc_enumerate.o
+ .debug_loc     0x0000159c      0x46b build/dragoninjector/fat.o
+ .debug_loc     0x00001a07       0x63 build/dragoninjector/main.o
+ .debug_loc     0x00001a6a      0x45f build/dragoninjector/msc.o
+ .debug_loc     0x00001ec9      0x1ee build/dragoninjector/sam_ba_monitor.o
+ .debug_loc     0x000020b7      0x51d build/dragoninjector/hid.o
+ .debug_loc     0x000025d4      0x34a /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_loc     0x0000291e      0x1d0 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .debug_loc     0x00002aee       0x8f /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+
+.debug_aranges  0x00000000      0x410
+ .debug_aranges
+                0x00000000       0x48 build/dragoninjector/flash_samd21.o
+ .debug_aranges
+                0x00000048       0x38 build/dragoninjector/init_samd21.o
+ .debug_aranges
+                0x00000080       0x30 build/dragoninjector/startup_samd21.o
+ .debug_aranges
+                0x000000b0       0x88 build/dragoninjector/usart_sam_ba.o
+ .debug_aranges
+                0x00000138       0x68 build/dragoninjector/utils.o
+ .debug_aranges
+                0x000001a0       0x98 build/dragoninjector/cdc_enumerate.o
+ .debug_aranges
+                0x00000238       0x30 build/dragoninjector/fat.o
+ .debug_aranges
+                0x00000268       0x20 build/dragoninjector/main.o
+ .debug_aranges
+                0x00000288       0x80 build/dragoninjector/msc.o
+ .debug_aranges
+                0x00000308       0x40 build/dragoninjector/sam_ba_monitor.o
+ .debug_aranges
+                0x00000348       0x48 build/dragoninjector/hid.o
+ .debug_aranges
+                0x00000390       0x20 /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .debug_aranges
+                0x000003b0       0x20 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_aranges
+                0x000003d0       0x20 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .debug_aranges
+                0x000003f0       0x20 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+
+.debug_ranges   0x00000000      0x480
+ .debug_ranges  0x00000000       0xa0 build/dragoninjector/flash_samd21.o
+ .debug_ranges  0x000000a0       0x48 build/dragoninjector/init_samd21.o
+ .debug_ranges  0x000000e8       0x20 build/dragoninjector/startup_samd21.o
+ .debug_ranges  0x00000108       0x78 build/dragoninjector/usart_sam_ba.o
+ .debug_ranges  0x00000180       0x70 build/dragoninjector/utils.o
+ .debug_ranges  0x000001f0       0xc0 build/dragoninjector/cdc_enumerate.o
+ .debug_ranges  0x000002b0       0x88 build/dragoninjector/fat.o
+ .debug_ranges  0x00000338       0x10 build/dragoninjector/main.o
+ .debug_ranges  0x00000348       0x88 build/dragoninjector/msc.o
+ .debug_ranges  0x000003d0       0x48 build/dragoninjector/sam_ba_monitor.o
+ .debug_ranges  0x00000418       0x68 build/dragoninjector/hid.o
+
+.debug_line     0x00000000     0x1dc6
+ .debug_line    0x00000000      0x1c1 build/dragoninjector/flash_samd21.o
+ .debug_line    0x000001c1      0x1db build/dragoninjector/init_samd21.o
+ .debug_line    0x0000039c      0x185 build/dragoninjector/startup_samd21.o
+ .debug_line    0x00000521      0x354 build/dragoninjector/usart_sam_ba.o
+ .debug_line    0x00000875      0x242 build/dragoninjector/utils.o
+ .debug_line    0x00000ab7      0x40a build/dragoninjector/cdc_enumerate.o
+ .debug_line    0x00000ec1      0x1dc build/dragoninjector/fat.o
+ .debug_line    0x0000109d      0x1d3 build/dragoninjector/main.o
+ .debug_line    0x00001270      0x40b build/dragoninjector/msc.o
+ .debug_line    0x0000167b      0x206 build/dragoninjector/sam_ba_monitor.o
+ .debug_line    0x00001881      0x1b3 build/dragoninjector/hid.o
+ .debug_line    0x00001a34       0x66 /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .debug_line    0x00001a9a      0x11e /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_line    0x00001bb8      0x104 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .debug_line    0x00001cbc      0x10a /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+
+.debug_str      0x00000000     0x3b8f
+ .debug_str     0x00000000      0x304 build/dragoninjector/flash_samd21.o
+                                0x3a8 (size before relaxing)
+ .debug_str     0x00000304      0x6da build/dragoninjector/init_samd21.o
+                                0xa1e (size before relaxing)
+ .debug_str     0x000009de      0xec1 build/dragoninjector/startup_samd21.o
+                               0x12f7 (size before relaxing)
+ .debug_str     0x0000189f      0xc4e build/dragoninjector/usart_sam_ba.o
+                                0xf73 (size before relaxing)
+ .debug_str     0x000024ed       0xda build/dragoninjector/utils.o
+                                0x42a (size before relaxing)
+ .debug_str     0x000025c7      0x415 build/dragoninjector/cdc_enumerate.o
+                               0x11b0 (size before relaxing)
+ .debug_str     0x000029dc      0x2b7 build/dragoninjector/fat.o
+                                0x4a4 (size before relaxing)
+ .debug_str     0x00002c93       0x86 build/dragoninjector/main.o
+                                0x6ad (size before relaxing)
+ .debug_str     0x00002d19      0x99e build/dragoninjector/msc.o
+                               0x140e (size before relaxing)
+ .debug_str     0x000036b7       0xd7 build/dragoninjector/sam_ba_monitor.o
+                                0x354 (size before relaxing)
+ .debug_str     0x0000378e      0x1ff build/dragoninjector/hid.o
+                                0x472 (size before relaxing)
+ .debug_str     0x0000398d      0x12d /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+                                0x1cd (size before relaxing)
+ .debug_str     0x00003aba       0x9a /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+                                0x1a8 (size before relaxing)
+ .debug_str     0x00003b54       0x3b /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+                                0x1b9 (size before relaxing)
+
+.comment        0x00000000       0x2b
+ .comment       0x00000000       0x2b build/dragoninjector/flash_samd21.o
+                                 0x2c (size before relaxing)
+ .comment       0x0000002b       0x2c build/dragoninjector/init_samd21.o
+ .comment       0x0000002b       0x2c build/dragoninjector/startup_samd21.o
+ .comment       0x0000002b       0x2c build/dragoninjector/usart_sam_ba.o
+ .comment       0x0000002b       0x2c build/dragoninjector/utils.o
+ .comment       0x0000002b       0x2c build/dragoninjector/cdc_enumerate.o
+ .comment       0x0000002b       0x2c build/dragoninjector/fat.o
+ .comment       0x0000002b       0x2c build/dragoninjector/main.o
+ .comment       0x0000002b       0x2c build/dragoninjector/msc.o
+ .comment       0x0000002b       0x2c build/dragoninjector/sam_ba_monitor.o
+ .comment       0x0000002b       0x2c build/dragoninjector/hid.o
+ .comment       0x0000002b       0x2c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .comment       0x0000002b       0x2c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .comment       0x0000002b       0x2c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+
+.ARM.attributes
+                0x00000000       0x32
+ .ARM.attributes
+                0x00000000       0x32 build/dragoninjector/flash_samd21.o
+ .ARM.attributes
+                0x00000032       0x32 build/dragoninjector/init_samd21.o
+ .ARM.attributes
+                0x00000064       0x32 build/dragoninjector/startup_samd21.o
+ .ARM.attributes
+                0x00000096       0x32 build/dragoninjector/usart_sam_ba.o
+ .ARM.attributes
+                0x000000c8       0x32 build/dragoninjector/utils.o
+ .ARM.attributes
+                0x000000fa       0x32 build/dragoninjector/cdc_enumerate.o
+ .ARM.attributes
+                0x0000012c       0x32 build/dragoninjector/fat.o
+ .ARM.attributes
+                0x0000015e       0x32 build/dragoninjector/main.o
+ .ARM.attributes
+                0x00000190       0x32 build/dragoninjector/msc.o
+ .ARM.attributes
+                0x000001c2       0x32 build/dragoninjector/sam_ba_monitor.o
+ .ARM.attributes
+                0x000001f4       0x32 build/dragoninjector/hid.o
+ .ARM.attributes
+                0x00000226       0x1e /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+ .ARM.attributes
+                0x00000244       0x2c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x00000270       0x2c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .ARM.attributes
+                0x0000029c       0x2c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+
+.debug_frame    0x00000000      0x964
+ .debug_frame   0x00000000       0xb0 build/dragoninjector/flash_samd21.o
+ .debug_frame   0x000000b0       0x68 build/dragoninjector/init_samd21.o
+ .debug_frame   0x00000118       0x4c build/dragoninjector/startup_samd21.o
+ .debug_frame   0x00000164      0x184 build/dragoninjector/usart_sam_ba.o
+ .debug_frame   0x000002e8       0xd0 build/dragoninjector/utils.o
+ .debug_frame   0x000003b8      0x1d0 build/dragoninjector/cdc_enumerate.o
+ .debug_frame   0x00000588       0x64 build/dragoninjector/fat.o
+ .debug_frame   0x000005ec       0x2c build/dragoninjector/main.o
+ .debug_frame   0x00000618      0x178 build/dragoninjector/msc.o
+ .debug_frame   0x00000790       0x90 build/dragoninjector/sam_ba_monitor.o
+ .debug_frame   0x00000820       0xc4 build/dragoninjector/hid.o
+ .debug_frame   0x000008e4       0x2c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00000910       0x2c /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000093c       0x28 /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+
+Cross Reference Table
+
+Symbol                                            File
+AC_Handler                                        build/dragoninjector/startup_samd21.o
+ADC_Handler                                       build/dragoninjector/startup_samd21.o
+AT91F_InitUSB                                     build/dragoninjector/cdc_enumerate.o
+AT91F_USB_SendZlp                                 build/dragoninjector/cdc_enumerate.o
+DAC_Handler                                       build/dragoninjector/startup_samd21.o
+DMAC_Handler                                      build/dragoninjector/startup_samd21.o
+Dummy_Handler                                     build/dragoninjector/startup_samd21.o
+EIC_Handler                                       build/dragoninjector/startup_samd21.o
+EVSYS_Handler                                     build/dragoninjector/startup_samd21.o
+HardFault_Handler                                 build/dragoninjector/startup_samd21.o
+I2S_Handler                                       build/dragoninjector/startup_samd21.o
+NMI_Handler                                       build/dragoninjector/startup_samd21.o
+NVMCTRL_Handler                                   build/dragoninjector/startup_samd21.o
+PM_Handler                                        build/dragoninjector/startup_samd21.o
+PTC_Handler                                       build/dragoninjector/startup_samd21.o
+PendSV_Handler                                    build/dragoninjector/startup_samd21.o
+RGBLED_set_color                                  build/dragoninjector/utils.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+                                                  build/dragoninjector/main.o
+RTC_Handler                                       build/dragoninjector/startup_samd21.o
+Reset_Handler                                     build/dragoninjector/startup_samd21.o
+SERCOM0_Handler                                   build/dragoninjector/startup_samd21.o
+SERCOM1_Handler                                   build/dragoninjector/startup_samd21.o
+SERCOM2_Handler                                   build/dragoninjector/startup_samd21.o
+SERCOM3_Handler                                   build/dragoninjector/startup_samd21.o
+SVC_Handler                                       build/dragoninjector/startup_samd21.o
+SYSCTRL_Handler                                   build/dragoninjector/startup_samd21.o
+SysTick_Handler                                   build/dragoninjector/init_samd21.o
+TC3_Handler                                       build/dragoninjector/startup_samd21.o
+TC4_Handler                                       build/dragoninjector/startup_samd21.o
+TC5_Handler                                       build/dragoninjector/startup_samd21.o
+TCC0_Handler                                      build/dragoninjector/startup_samd21.o
+TCC1_Handler                                      build/dragoninjector/startup_samd21.o
+TCC2_Handler                                      build/dragoninjector/startup_samd21.o
+USB_Handler                                       build/dragoninjector/startup_samd21.o
+USB_Ok                                            build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/msc.o
+                                                  build/dragoninjector/main.o
+USB_Read                                          build/dragoninjector/cdc_enumerate.o
+USB_ReadBlocking                                  build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/msc.o
+USB_ReadCore                                      build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/msc.o
+USB_Write                                         build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/msc.o
+USB_WriteCore                                     build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/msc.o
+WDT_Handler                                       build/dragoninjector/startup_samd21.o
+__gnu_thumb1_case_uqi                             /usr/lib/gcc/arm-none-eabi/5.4.1/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+                                                  build/dragoninjector/hid.o
+_erelocate                                        build/dragoninjector/startup_samd21.o
+_estack                                           build/dragoninjector/startup_samd21.o
+_etext                                            build/dragoninjector/startup_samd21.o
+_ezero                                            build/dragoninjector/startup_samd21.o
+_sfixed                                           build/dragoninjector/startup_samd21.o
+_srelocate                                        build/dragoninjector/startup_samd21.o
+_szero                                            build/dragoninjector/startup_samd21.o
+add_crc                                           build/dragoninjector/usart_sam_ba.o
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+arrowLogo                                         build/dragoninjector/images.o
+b_sam_ba_interface_usart                          build/dragoninjector/sam_ba_monitor.o
+b_sharp_received                                  build/dragoninjector/usart_sam_ba.o
+binfo                                             build/dragoninjector/msc.o
+buffer_rx_usart                                   build/dragoninjector/usart_sam_ba.o
+buffer_tx_usart                                   build/dragoninjector/usart_sam_ba.o
+call_applet                                       build/dragoninjector/sam_ba_monitor.o
+cdc_is_rx_ready                                   build/dragoninjector/cdc_enumerate.o
+cdc_read_buf                                      build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+cdc_read_buf_xmd                                  build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+cdc_write_buf                                     build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+cdc_write_buf_xmd                                 build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+cfgDescriptor                                     build/dragoninjector/cdc_enumerate.o
+command                                           build/dragoninjector/sam_ba_monitor.o
+copy_words                                        build/dragoninjector/flash_samd21.o
+                                                  build/dragoninjector/hid.o
+ctrlOutCache                                      build/dragoninjector/cdc_enumerate.o
+current_number                                    build/dragoninjector/sam_ba_monitor.o
+data                                              build/dragoninjector/sam_ba_monitor.o
+delay                                             build/dragoninjector/utils.o
+                                                  build/dragoninjector/main.o
+devDescriptor                                     build/dragoninjector/cdc_enumerate.o
+endpointCache                                     build/dragoninjector/cdc_enumerate.o
+error_timeout                                     build/dragoninjector/usart_sam_ba.o
+exception_table                                   build/dragoninjector/startup_samd21.o
+fileLogo                                          build/dragoninjector/images.o
+flash_erase_row                                   build/dragoninjector/flash_samd21.o
+flash_erase_to_end                                build/dragoninjector/flash_samd21.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+flash_write                                       build/dragoninjector/flash_samd21.o
+flash_write_row                                   build/dragoninjector/flash_samd21.o
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/fat.o
+flash_write_words                                 build/dragoninjector/flash_samd21.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+font8                                             build/dragoninjector/images.o
+g_interrupt_enabled                               build/dragoninjector/init_samd21.o
+getPacket                                         build/dragoninjector/usart_sam_ba.o
+handoverPrep                                      build/dragoninjector/msc.o
+                                                  build/dragoninjector/hid.o
+hidCfgDescriptor                                  build/dragoninjector/cdc_enumerate.o
+hidDescriptor                                     build/dragoninjector/cdc_enumerate.o
+hidHandoverLoop                                   build/dragoninjector/hid.o
+                                                  build/dragoninjector/msc.o
+i                                                 build/dragoninjector/sam_ba_monitor.o
+idx_rx_read                                       build/dragoninjector/usart_sam_ba.o
+idx_rx_write                                      build/dragoninjector/usart_sam_ba.o
+idx_tx_read                                       build/dragoninjector/usart_sam_ba.o
+idx_tx_write                                      build/dragoninjector/usart_sam_ba.o
+indexFile                                         build/dragoninjector/fat.o
+infoUf2File                                       build/dragoninjector/fat.o
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/msc.o
+j                                                 build/dragoninjector/sam_ba_monitor.o
+led_init                                          build/dragoninjector/utils.o
+                                                  build/dragoninjector/main.o
+led_signal                                        build/dragoninjector/utils.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+                                                  build/dragoninjector/msc.o
+led_tick                                          build/dragoninjector/utils.o
+                                                  build/dragoninjector/init_samd21.o
+led_tick_step                                     build/dragoninjector/utils.o
+                                                  build/dragoninjector/main.o
+length                                            build/dragoninjector/sam_ba_monitor.o
+main                                              build/dragoninjector/main.o
+                                                  build/dragoninjector/startup_samd21.o
+memcpy                                            /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memcpy-stub.o)
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+                                                  build/dragoninjector/msc.o
+                                                  build/dragoninjector/fat.o
+                                                  build/dragoninjector/cdc_enumerate.o
+memset                                            /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-memset.o)
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/msc.o
+                                                  build/dragoninjector/fat.o
+                                                  build/dragoninjector/cdc_enumerate.o
+mode_of_transfer                                  build/dragoninjector/usart_sam_ba.o
+mscReset                                          build/dragoninjector/msc.o
+msc_reset                                         build/dragoninjector/msc.o
+padded_memcpy                                     build/dragoninjector/fat.o
+                                                  build/dragoninjector/msc.o
+panic                                             build/dragoninjector/utils.o
+pendriveLogo                                      build/dragoninjector/images.o
+process_core                                      build/dragoninjector/hid.o
+process_hid                                       build/dragoninjector/hid.o
+                                                  build/dragoninjector/msc.o
+process_msc                                       build/dragoninjector/msc.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+ptr                                               build/dragoninjector/sam_ba_monitor.o
+ptr_data                                          build/dragoninjector/sam_ba_monitor.o
+put_uint32                                        build/dragoninjector/sam_ba_monitor.o
+read_block                                        build/dragoninjector/fat.o
+                                                  build/dragoninjector/msc.o
+recv_hf2                                          build/dragoninjector/hid.o
+resetHorizon                                      build/dragoninjector/utils.o
+                                                  build/dragoninjector/main.o
+                                                  build/dragoninjector/fat.o
+resetIntoApp                                      build/dragoninjector/utils.o
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/msc.o
+resetIntoBootloader                               build/dragoninjector/utils.o
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/msc.o
+reset_ep                                          build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/msc.o
+sam_ba_monitor_init                               build/dragoninjector/sam_ba_monitor.o
+sam_ba_monitor_run                                build/dragoninjector/sam_ba_monitor.o
+                                                  build/dragoninjector/main.o
+sam_ba_putdata_term                               build/dragoninjector/sam_ba_monitor.o
+send_hf2                                          build/dragoninjector/hid.o
+send_hf2_response                                 build/dragoninjector/hid.o
+size_of_data                                      build/dragoninjector/usart_sam_ba.o
+sp                                                build/dragoninjector/sam_ba_monitor.o
+stall_ep                                          build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/msc.o
+strlen                                            /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libg_nano.a(lib_a-strlen-stub.o)
+                                                  build/dragoninjector/hid.o
+                                                  build/dragoninjector/fat.o
+                                                  build/dragoninjector/cdc_enumerate.o
+system_init                                       build/dragoninjector/init_samd21.o
+                                                  build/dragoninjector/main.o
+timerHigh                                         build/dragoninjector/utils.o
+                                                  build/dragoninjector/main.o
+                                                  build/dragoninjector/fat.o
+timerTick                                         build/dragoninjector/utils.o
+                                                  build/dragoninjector/cdc_enumerate.o
+try_read_cbw                                      build/dragoninjector/msc.o
+u32tmp                                            build/dragoninjector/sam_ba_monitor.o
+uart_basic_init                                   build/dragoninjector/uart_driver.o
+                                                  build/dragoninjector/usart_sam_ba.o
+uart_disable                                      build/dragoninjector/uart_driver.o
+                                                  build/dragoninjector/usart_sam_ba.o
+uart_drv_error_flag                               build/dragoninjector/uart_driver.o
+uart_get_sercom_index                             build/dragoninjector/uart_driver.o
+                                                  build/dragoninjector/usart_sam_ba.o
+uart_read_buffer_polled                           build/dragoninjector/uart_driver.o
+uart_read_byte                                    build/dragoninjector/uart_driver.o
+                                                  build/dragoninjector/usart_sam_ba.o
+uart_write_buffer_polled                          build/dragoninjector/uart_driver.o
+uart_write_byte                                   build/dragoninjector/uart_driver.o
+                                                  build/dragoninjector/usart_sam_ba.o
+udd_ep_set_halt                                   build/dragoninjector/msc.o
+udi_msc_csw_send                                  build/dragoninjector/msc.o
+usart_close                                       build/dragoninjector/usart_sam_ba.o
+usart_getc                                        build/dragoninjector/usart_sam_ba.o
+usart_getdata                                     build/dragoninjector/usart_sam_ba.o
+usart_getdata_xmd                                 build/dragoninjector/usart_sam_ba.o
+usart_is_rx_ready                                 build/dragoninjector/usart_sam_ba.o
+usart_open                                        build/dragoninjector/usart_sam_ba.o
+usart_putc                                        build/dragoninjector/usart_sam_ba.o
+usart_putdata                                     build/dragoninjector/usart_sam_ba.o
+usart_putdata_xmd                                 build/dragoninjector/usart_sam_ba.o
+usart_readc                                       build/dragoninjector/usart_sam_ba.o
+usart_sharp_received                              build/dragoninjector/usart_sam_ba.o
+usb_endpoint_table                                build/dragoninjector/cdc_enumerate.o
+usb_init                                          build/dragoninjector/cdc_enumerate.o
+                                                  build/dragoninjector/main.o
+writeNum                                          build/dragoninjector/utils.o
+                                                  build/dragoninjector/sam_ba_monitor.o
+                                                  build/dragoninjector/cdc_enumerate.o
+write_block                                       build/dragoninjector/fat.o
+                                                  build/dragoninjector/msc.o
