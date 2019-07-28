@@ -3,7 +3,7 @@
 
 #define VENDOR_NAME "DragonInjector"
 #define PRODUCT_NAME "DragonInjector"
-#define VOLUME_LABEL "DRAGONBOOT"
+#define VOLUME_LABEL "DRAGONINJECTOR"
 #define INDEX_URL "https://dragoninjector.com"
 
 #define USB_VID 0x04D8   // Atmel VID
