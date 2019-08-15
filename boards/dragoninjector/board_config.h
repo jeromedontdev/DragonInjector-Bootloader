@@ -5,6 +5,7 @@
 #define PRODUCT_NAME "DragonInjector"
 #define VOLUME_LABEL "DRAGONBOOT"
 #define INDEX_URL "https://dragoninjector.com"
+#define DI_BOOTLOADER_VERSION "DI_BL_0.40"
 
 #define USB_VID 0x04D8   // Atmel VID
 #define USB_PID 0xED11   // DragonInjector Licensed PID
