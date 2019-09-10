@@ -267,6 +267,7 @@ void system_init(void);
 #define PINOP(pin, OP) (PORT->Group[(pin) / 32].OP.reg = (1 << ((pin) % 32)))
 
 void led_tick(void);
+void usb_sof_check(void);
 void led_signal(void);
 void led_init(void);
 void RGBLED_set_color(uint32_t color);

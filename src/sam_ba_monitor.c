@@ -123,10 +123,6 @@ void put_uint32(uint32_t n) {
     cdc_write_buf(buff, 8);
 }
 
-uint8_t USB_SOF_state = 0;
-uint32_t USB_SOF_stale_timer = 0;
-uint32_t USB_SOF_stale_trigger = 6000;
-
 /**
  * \brief This function starts the SAM-BA monitor.
  */
@@ -300,27 +296,5 @@ void sam_ba_monitor_run(void) {
                 ptr++;
             }
         }
-		
-		// Continuously monitor SOF flag to detect disconnection from host.
-        
-        USB_SOF_state = ((USB_DEVICE_INTFLAG_Type*)0x4100501C)->bit.SOF; // Get SOF flag status.
-        
-        if (!USB_SOF_state)
-        {
-            USB_SOF_stale_timer++; // No SOF packet recieved since last loop, increment timer.
-        }
-        else {
-            USB_SOF_stale_timer = 0; // SOF packet recieved since last loop, reset timer.
-        }
-        
-        if (USB_SOF_stale_timer > USB_SOF_stale_trigger)
-        {
-            // No SOF packets for a while, assume no host and power off device.
-			PORT->Group[0].PINCFG[PIN_PA25].bit.PMUXEN = 0;
-			PINOP(PIN_PA25, DIRSET);
-			PINOP(PIN_PA25, OUTCLR);
-        }
-        
-        *(uint32_t *)0x4100501C = 1<<2; // Reset SOF flag to 0 by writing 1.
     }
 }
