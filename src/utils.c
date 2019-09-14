@@ -136,7 +136,7 @@ void led_tick() {
 
 uint8_t USB_SOF_state = 0;
 uint32_t USB_SOF_stale_timer = 0;
-uint32_t USB_SOF_stale_trigger = 25000;
+uint32_t USB_SOF_stale_trigger = 30000;
 
 void usb_sof_check() {
 		
