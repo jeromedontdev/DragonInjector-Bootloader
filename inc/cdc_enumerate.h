@@ -100,6 +100,20 @@ bool cdc_is_rx_ready(void);
  */
 uint32_t cdc_write_buf(void const *data, uint32_t length);
 uint32_t cdc_write_buf_xmd(void const *data, uint32_t length);
+void save_settings(void);
+void invalid_command(void);
+void newline(void);
+void space(void);
+void equals(void);
+void read_text(void);
+void write_text(void);
+void period_text(void);
+void refresh_values(void);
+void read_settings(void);
+void safesettings(void);
+void write_settings(void);
+void flash_write_words(uint32_t *dst, uint32_t *src, uint32_t n_words);
+void flash_erase_row(uint32_t *dst);
 
 /**
  * \brief Gets data on USB CDC

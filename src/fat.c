@@ -55,8 +55,8 @@ struct TextFile {
 #define STR0(x) #x
 #define STR(x) STR0(x)
 const char infoUf2File[] = //
-    "DragonInjector Payload Dongle" "\r\n"
-	"Bootloader Version: " DI_BOOTLOADER_VERSION "\r\n";
+    "DragonInjector" "\r\n"
+	DI_BOOTLOADER_VERSION;
 
 #if USE_FAT
 #if USE_INDEX_HTM

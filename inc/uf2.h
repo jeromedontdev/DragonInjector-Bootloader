@@ -54,7 +54,7 @@
 // Support the UART (real serial port, not USB)
 #define USE_UART 0
 // Support Human Interface Device (HID) - serial, flashing and debug
-#define USE_HID 1 // 788 bytes
+#define USE_HID 0 // 788 bytes
 // Expose HID via WebUSB
 #define USE_WEBUSB 0
 // Doesn't yet disable code, just enumeration
@@ -73,10 +73,10 @@
 #define USE_SINGLE_RESET 1
 
 // Fine-tuning of features
-#define USE_HID_SERIAL 1   // just an example, not really needed; 36 bytes
-#define USE_HID_EXT 1      // extended HID commands (read/write mem); 60 bytes
-#define USE_HID_HANDOVER 1 // allow HID application->bootloader seamless transition; 56 bytes
-#define USE_MSC_HANDOVER 1 // ditto for MSC; 348 bytes
+#define USE_HID_SERIAL 0   // just an example, not really needed; 36 bytes
+#define USE_HID_EXT 0      // extended HID commands (read/write mem); 60 bytes
+#define USE_HID_HANDOVER 0 // allow HID application->bootloader seamless transition; 56 bytes
+#define USE_MSC_HANDOVER 0 // ditto for MSC; 348 bytes
 #define USE_MSC_CHECKS 0   // check validity of MSC commands; 460 bytes
 #define USE_CDC_TERMINAL 0 // enable ASCII mode on CDC loop (not used by BOSSA); 228 bytes
 #define USE_DBG_MSC 0      // output debug info about MSC
@@ -212,7 +212,7 @@ void panic(int code);
 extern volatile bool b_sam_ba_interface_usart;
 void flash_write_row(uint32_t *dst, uint32_t *src);
 void flash_erase_to_end(uint32_t *start_address);
-void flash_write_words(uint32_t *dst, uint32_t *src, uint32_t n_words);
+//void flash_write_words(uint32_t *dst, uint32_t *src, uint32_t n_words); Now declared in cdc_enumerate.h
 void copy_words(uint32_t *dst, uint32_t *src, uint32_t n_words);
 
 int writeNum(char *buf, uint32_t n, bool full);

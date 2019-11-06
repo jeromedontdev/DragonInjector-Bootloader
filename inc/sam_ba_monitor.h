@@ -37,7 +37,7 @@
 /* Selects USART as the communication interface of the monitor */
 #define SAM_BA_INTERFACE_USART 0
 /* Selects USB as the communication interface of the monitor */
-#define SAM_BA_INTERFACE_USBCDC 1
+#define SAM_BA_INTERFACE_USBCDC 0
 
 /* Selects USB as the communication interface of the monitor */
 #define SIZEBUFMAX 64

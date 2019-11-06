@@ -29,7 +29,7 @@
 
 #include "uf2.h"
 
-static const char fullVersion[] = "v" SAM_BA_VERSION " [Arduino:XYZ] " __DATE__ " " __TIME__ "\n\r";
+//static const char fullVersion[] = "v" SAM_BA_VERSION " [Arduino:XYZ] " __DATE__ " " __TIME__ "\n\r";
 
 /* b_terminal_mode mode (ascii) or hex mode */
 #if USE_CDC_TERMINAL
@@ -123,178 +123,559 @@ void put_uint32(uint32_t n) {
     cdc_write_buf(buff, 8);
 }
 
-/**
- * \brief This function starts the SAM-BA monitor.
- */
-void sam_ba_monitor_run(void) {
-    ptr_data = NULL;
-    command = 'z';
+char cmd[SIZEBUFMAX];
 
-    // Start waiting some cmd
+  uint8_t bdelay = 5;            // bl   Default reboot to bootloader delay in seconds.
+  uint8_t slots = 4;             // se   Default multi-payload slot limit.
+  uint8_t mdelay = 3;            // bd   Default hold delay for mode switch in seconds.
+  uint8_t cslot = 0;             // cs   Default selected payload slot. 0 = Single, 1-8 = Multi.
+  uint8_t rdelay = 1;            // rd   Default hold delay for pre-RCM payload switch in seconds.
+  uint8_t dmode = 0;             // dm   Alternate dual-payload SOP, boot slot 01 normally, boot slot 02 if cap button held.
+  
+  char bdelay_argument[1];
+  char slots_argument[1];
+  char mdelay_argument[1];
+  char cslot_argument[1];
+  char rdelay_argument[1];
+  char dmode_argument[1];
+  
+  char bdelay_command[] = "bdelay";
+  char slots_command[] = "slots";
+  char mdelay_command[] = "mdelay";
+  char cslot_command[] = "cslot";
+  char rdelay_command[] = "rdelay";
+  char dmode_command[] = "dmode";
+  char reboot_command[] = "reboot";
+  char readall_command[] = "readall";
+  char freset_command[] = "freset";
+  char commands_command[] = "commands";
+  
+  //Defines
+  #define PAGE_00 0xFC00
+  #define PAGE_01 0xFC40
+  #define PAGE_02 0xFC80
+  #define PAGE_03 0xFCC0
+  #define PAGE_04 0xFD00
+  #define PAGE_05 0xFD40
+  #define PAGE_06 0xFD80
+  #define PAGE_07 0xFDC0
+  #define PAGE_08 0xFE00
+  #define PAGE_09 0xFE40
+  #define PAGE_10 0xFE80
+  #define PAGE_11 0xFEC0
+  #define PAGE_12 0xFF00
+  #define PAGE_13 0xFF40
+  #define PAGE_14 0xFF80
+  #define PAGE_15 0xFFC0
+  #define LAST_PAGE ((usersettings_t*)PAGE_15)
+  #define PAGE_SIZE 0x40
+
+//Make a struct to hold our settings.
+  typedef struct __attribute__((__packed__)) usersettings
+  {
+    uint8_t a;       //Location for pagedata
+    uint8_t b;       //Location for bdelay
+    uint8_t c;       //Location for slots
+    uint8_t d;       //Location for mdelay
+    uint8_t e;       //Location for cslot
+    uint8_t f;       //Location for rdelay
+    uint8_t g;       //Location for rdelay
+  } usersettings_t;
+
+// Serial CLI.
+
+void sam_ba_monitor_run(void) {
+	read_settings();
+	safesettings();
     while (1) {
         process_msc();
-        length = cdc_read_buf(data, SIZEBUFMAX);
-        data[length] = 0;
-        if (length) {
-            logwrite("SERIAL:");
-            logmsg(data);
-            led_signal();
-        }
-        ptr = data;
-        for (i = 0; i < length; i++) {
-            if (*ptr != 0xff) {
-                if (*ptr == '#') {
-#if USE_CDC_TERMINAL
-                    if (b_terminal_mode) {
-                        cdc_write_buf("\n\r", 2);
-                    }
-#endif
-                    if (command == 'S') {
-                        // Check if some data are remaining in the "data" buffer
-                        if (length > i) {
-                            // Move current indexes to next avail data
-                            // (currently ptr points to "#")
-                            ptr++;
-                            i++;
-                            // We need to add first the remaining data of the
-                            // current buffer already read from usb
-                            // read a maximum of "current_number" bytes
-                            u32tmp = (length - i) < current_number ? (length - i) : current_number;
-                            memcpy(ptr_data, ptr, u32tmp);
-                            i += u32tmp;
-                            ptr += u32tmp;
-                            j = u32tmp;
-                        }
-                        // update i with the data read from the buffer
-                        i--;
-                        ptr--;
-                        // Do we expect more data ?
-                        if (j < current_number)
-                            cdc_read_buf_xmd(ptr_data, current_number - j);
+		
+		// Empty USART buffer.
+		for (i = 0; i < SIZEBUFMAX; i++)
+		{
+		  data[i] = 0;
+		}
+		
+		// Read USART to buffer.
+        cdc_read_buf(data, SIZEBUFMAX);
+		
+		//Check if buffer has data. Ignore carriage return.
+		if (data[0] && *data != '\r')
+		{
+           if (strncmp(data, bdelay_command, sizeof(strlen(bdelay_command))) == 0)
+	   	   { 
+ 			   if (data[strlen(bdelay_command)+1] >= '1' && data[strlen(bdelay_command)+1] <= '9')
+		  	   {
+				  bdelay = data[strlen(bdelay_command)+1] - 0x30;
+				  refresh_values();				  
+				  save_settings();
+				  space();
+				  cdc_write_buf(bdelay_command, sizeof(bdelay_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(bdelay_argument, sizeof(bdelay_argument));
+				  newline();
+			   }
+			   else
+			   {				   
+				  refresh_values();
+				  read_text();
+				  space();
+				  cdc_write_buf(bdelay_command, sizeof(bdelay_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(bdelay_argument, sizeof(bdelay_argument));
+				  newline();
+			   }
+		   }			   
+		   else if (strncmp(data, slots_command, sizeof(strlen(slots_command))) == 0)
+		   {			   
+			   if (data[strlen(slots_command)+1] >= '1' && data[strlen(slots_command)+1] <= '9')
+		  	   {
+				  slots = data[strlen(slots_command)+1] - 0x30;
+				  refresh_values();				  
+				  save_settings();
+				  space();
+				  cdc_write_buf(slots_command, sizeof(slots_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(slots_argument, sizeof(slots_argument));
+				  newline();
+			   }
+			   else
+			   {
+				  refresh_values();
+				  read_text();
+				  space();
+				  cdc_write_buf(slots_command, sizeof(slots_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(slots_argument, sizeof(slots_argument));
+				  newline();
+			   }
+		   }
+           else if (strncmp(data, mdelay_command, sizeof(strlen(mdelay_command))) == 0)
+		   {			   
+			   if (data[strlen(mdelay_command)+1] >= '1' && data[strlen(mdelay_command)+1] <= '9')
+		  	   {
+				  mdelay = data[strlen(mdelay_command)+1] - 0x30;
+				  refresh_values();				  
+				  save_settings();
+				  space();
+				  cdc_write_buf(mdelay_command, sizeof(mdelay_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(mdelay_argument, sizeof(mdelay_argument));
+				  newline();
+			   }
+			   else
+			   {
+				  refresh_values();
+				  read_text();
+				  space();
+				  cdc_write_buf(mdelay_command, sizeof(mdelay_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(mdelay_argument, sizeof(mdelay_argument));
+				  newline();
+			   }
+		   }		
+           else if (strncmp(data, cslot_command, sizeof(strlen(cslot_command))) == 0)
+		   {			   
+			   if (data[strlen(cslot_command)+1] >= '0' && data[strlen(cslot_command)+1] <= '9')
+		  	   {
+				  cslot = data[strlen(cslot_command)+1] - 0x30;
+				  refresh_values();				  
+				  save_settings();
+				  space();
+				  cdc_write_buf(cslot_command, sizeof(cslot_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(cslot_argument, sizeof(cslot_argument));
+				  newline();
+			   }
+			   else
+			   {
+				  refresh_values();
+				  read_text();
+				  space();
+				  cdc_write_buf(cslot_command, sizeof(cslot_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(cslot_argument, sizeof(cslot_argument));
+				  newline();
+			   }
+		   }	
+           else if (strncmp(data, rdelay_command, sizeof(strlen(rdelay_command))) == 0)
+		   {			   
+			   if (data[strlen(rdelay_command)+1] >= '1' && data[strlen(rdelay_command)+1] <= '3')
+		  	   {
+				  rdelay = data[strlen(rdelay_command)+1] - 0x30;
+				  refresh_values();				  
+				  save_settings();
+				  space();
+				  cdc_write_buf(rdelay_command, sizeof(rdelay_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(rdelay_argument, sizeof(rdelay_argument));
+				  newline();
+			   }
+			   else
+			   {
+				  refresh_values();
+				  read_text();
+				  space();
+				  cdc_write_buf(rdelay_command, sizeof(rdelay_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(rdelay_argument, sizeof(rdelay_argument));
+				  newline();
+			   }
+		   }		
+           else if (strncmp(data, dmode_command, sizeof(strlen(dmode_command))) == 0)
+		   {			   
+			   if (data[strlen(dmode_command)+1] >= '0' && data[strlen(dmode_command)+1] <= '1')
+		  	   {
+				  dmode = data[strlen(dmode_command)+1] - 0x30;
+				  refresh_values();				  
+				  save_settings();
+				  space();
+				  cdc_write_buf(dmode_command, sizeof(dmode_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(dmode_argument, sizeof(dmode_argument));
+				  newline();
+			   }
+			   else
+			   {
+				  refresh_values();
+				  read_text();
+				  space();
+				  cdc_write_buf(dmode_command, sizeof(dmode_command));
+				  space();
+				  equals();
+				  space();
+				  cdc_write_buf(dmode_argument, sizeof(dmode_argument));
+				  newline();
+			   }
+		   }		
+           else if (strncmp(data, reboot_command, sizeof(strlen(reboot_command))) == 0)
+		   {			
+               cdc_write_buf("Rebooting...", 12);
+			   delay(20);
+			   NVIC_SystemReset();
+		   }		
+           else if (strncmp(data, readall_command, sizeof(strlen(readall_command))) == 0)
+		   {			   
+			   refresh_values();
+			   read_text();
+			   space();
+			   cdc_write_buf(bdelay_command, sizeof(bdelay_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(bdelay_argument, sizeof(bdelay_argument));
+			   newline();
+			   read_text();
+			   space();
+			   cdc_write_buf(slots_command, sizeof(slots_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(slots_argument, sizeof(slots_argument));
+			   newline();
+			   read_text();
+			   space();
+			   cdc_write_buf(mdelay_command, sizeof(mdelay_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(mdelay_argument, sizeof(mdelay_argument));
+			   newline();
+			   read_text();
+			   space();
+			   cdc_write_buf(cslot_command, sizeof(cslot_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(cslot_argument, sizeof(cslot_argument));
+			   newline();
+			   read_text();
+			   space();
+			   cdc_write_buf(rdelay_command, sizeof(rdelay_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(rdelay_argument, sizeof(rdelay_argument));
+			   newline();
+			   read_text();
+			   space();
+			   cdc_write_buf(dmode_command, sizeof(dmode_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(dmode_argument, sizeof(dmode_argument));
+			   newline();
+		   }		
+           else if (strncmp(data, freset_command, sizeof(strlen(freset_command))) == 0)
+		   {			   
+               bdelay = 5;
+               slots = 4; 
+               mdelay = 3;
+               cslot = 0;
+               rdelay = 1;
+               dmode = 0;
+			   refresh_values();				  
+			   save_settings();
+			   space();
+			   cdc_write_buf(bdelay_command, sizeof(bdelay_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(bdelay_argument, sizeof(bdelay_argument));
+			   newline();
+			   write_text();
+			   space();
+			   cdc_write_buf(slots_command, sizeof(slots_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(slots_argument, sizeof(slots_argument));
+			   newline();
+			   write_text();
+			   space();
+			   cdc_write_buf(mdelay_command, sizeof(mdelay_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(mdelay_argument, sizeof(mdelay_argument));
+			   newline();
+			   write_text();
+			   space();
+			   cdc_write_buf(cslot_command, sizeof(cslot_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(cslot_argument, sizeof(cslot_argument));
+			   newline();
+			   write_text();
+			   space();
+			   cdc_write_buf(rdelay_command, sizeof(rdelay_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(rdelay_argument, sizeof(rdelay_argument));
+			   newline();
+			   write_text();
+			   space();
+			   cdc_write_buf(dmode_command, sizeof(dmode_command));
+			   space();
+			   equals();
+			   space();
+			   cdc_write_buf(dmode_argument, sizeof(dmode_argument));
+			   newline();			   
+		   }		
+           else if (strncmp(data, commands_command, sizeof(strlen(commands_command))) == 0)
+		   {		
+               space();	   
+			   cdc_write_buf(bdelay_command, sizeof(bdelay_command));
+			   newline();
+			   space();	   
+			   cdc_write_buf(slots_command, sizeof(slots_command));
+			   newline();
+			   space();	   
+			   cdc_write_buf(mdelay_command, sizeof(mdelay_command));
+			   newline();
+			   space();	   
+			   cdc_write_buf(cslot_command, sizeof(cslot_command));
+			   newline();
+			   space();	  
+			   cdc_write_buf(rdelay_command, sizeof(rdelay_command));
+			   newline();
+			   space();	  
+			   cdc_write_buf(dmode_command, sizeof(dmode_command));
+			   newline();	
+			   space();	 
+			   cdc_write_buf(reboot_command, sizeof(reboot_command));
+			   newline();
+			   space();	   
+			   cdc_write_buf(readall_command, sizeof(readall_command));
+			   newline();
+			   space();	  
+			   cdc_write_buf(freset_command, sizeof(freset_command));
+			   newline();
+			   space();	  
+			   cdc_write_buf(commands_command, sizeof(commands_command));
+			   newline();				   
+		   }			   
+		   else
+		   {
+		       invalid_command();
+		   } 
+		}
+	}
+}
 
-                        __asm("nop");
-                    } else if (command == 'R') {
-                        cdc_write_buf_xmd(ptr_data, current_number);
-                    } else if (command == 'O') {
-                        *ptr_data = (char)current_number;
-                    } else if (command == 'H') {
-                        *((uint16_t *)(void *)ptr_data) = (uint16_t)current_number;
-                    } else if (command == 'W') {
-                        // detect BOSSA resetting us
-                        if ((uint32_t)ptr_data == 0xE000ED0C)
-                            RGBLED_set_color(COLOR_LEAVE);
-                        *((int *)(void *)ptr_data) = current_number;
-                    } else if (command == 'o') {
-                        sam_ba_putdata_term(ptr_data, 1);
-                    } else if (command == 'h') {
-                        current_number = *((uint16_t *)(void *)ptr_data);
-                        sam_ba_putdata_term((uint8_t *)&current_number, 2);
-                    } else if (command == 'w') {
-                        current_number = *((uint32_t *)(void *)ptr_data);
-                        sam_ba_putdata_term((uint8_t *)&current_number, 4);
-                    } else if (command == 'G') {
-                        call_applet(current_number);
-                        if (b_sam_ba_interface_usart) {
-                            cdc_write_buf("\x06", 1);
-                        }
-                    } else if (command == 'T') {
-#if USE_CDC_TERMINAL
-                        b_terminal_mode = 1;
-                        cdc_write_buf("\n\r", 2);
-#endif
-                    } else if (command == 'N') {
-#if USE_CDC_TERMINAL
-                        if (b_terminal_mode == 0) {
-                            cdc_write_buf("\n\r", 2);
-                        }
-                        b_terminal_mode = 0;
-#endif
-                    } else if (command == 'V') {
-                        cdc_write_buf(fullVersion, sizeof(fullVersion));
-                    } else if (command == 'X') {
-                        // Syntax: X[ADDR]#
-                        // Erase the flash memory starting from ADDR to the end
-                        // of flash.
+void invalid_command(void)
+{
+	char invalid_command_text[] = "Invalid command. Send 'commands' for list.";
+	cdc_write_buf(invalid_command_text, sizeof(invalid_command_text));
+	newline(); 
+}
 
-                        flash_erase_to_end((uint32_t *) current_number);
+void newline(void)
+{
+	cdc_write_buf("\n\r", 2);
+}
 
-                        // Notify command completed
-                        cdc_write_buf("X\n\r", 3);
-                    } else if (command == 'Y') {
-                        // This command writes the content of a buffer in SRAM
-                        // into flash memory.
+void space(void)
+{
+	cdc_write_buf(" ", 1);
+}
 
-                        // Syntax: Y[ADDR],0#
-                        // Set the starting address of the SRAM buffer.
+void equals(void)
+{
+	cdc_write_buf("=", 1);
+}
 
-                        // Syntax: Y[ROM_ADDR],[SIZE]#
-                        // Write the first SIZE bytes from the SRAM buffer
-                        // (previously set) into
-                        // flash memory starting from address ROM_ADDR
+void read_text(void)
+{
+	cdc_write_buf("Read", 4);
+}
 
-                        static uint32_t *src_buff_addr = NULL;
+void write_text(void)
+{
+	cdc_write_buf("Wrote", 5);
+}
 
-                        if (current_number == 0) {
-                            // Set buffer address
-                            src_buff_addr = (void *)ptr_data;
+void period_text(void)
+{
+	cdc_write_buf(".", 1);
+}
 
-                        } else {
-                            flash_write_words((void *)ptr_data, src_buff_addr, current_number / 4);
-                        }
+void save_settings(void)
+{
+	if(cslot > slots)
+	{
+		cslot = slots;
+	}
+	write_settings();
+	write_text();
+}
 
-                        // Notify command completed
-                        cdc_write_buf("Y\n\r", 3);
-                    } else if (command == 'Z') {
-                        // This command calculate CRC for a given area of
-                        // memory.
-                        // It's useful to quickly check if a transfer has been
-                        // done
-                        // successfully.
+void refresh_values(void)
+{
+    bdelay_argument[0] = bdelay + '0';
+    slots_argument[0] = slots + '0';
+    mdelay_argument[0] = mdelay + '0';
+    cslot_argument[0] = cslot + '0';
+    rdelay_argument[0] = rdelay + '0';
+    dmode_argument[0] = dmode + '0';
+}
 
-                        // Syntax: Z[START_ADDR],[SIZE]#
-                        // Returns: Z[CRC]#
-
-                        uint8_t *data = (uint8_t *)ptr_data;
-                        uint32_t size = current_number;
-                        uint16_t crc = 0;
-                        uint32_t i = 0;
-                        for (i = 0; i < size; i++)
-                            crc = add_crc(*data++, crc);
-
-                        // Send response
-                        cdc_write_buf("Z", 1);
-                        put_uint32(crc);
-                        cdc_write_buf("#\n\r", 3);
-                    }
-
-                    command = 'z';
-                    current_number = 0;
-#if USE_CDC_TERMINAL
-                    if (b_terminal_mode) {
-                        cdc_write_buf(">", 1);
-                    }
-#endif
-                } else {
-                    if (('0' <= *ptr) && (*ptr <= '9')) {
-                        current_number = (current_number << 4) | (*ptr - '0');
-
-                    } else if (('A' <= *ptr) && (*ptr <= 'F')) {
-                        current_number = (current_number << 4) | (*ptr - 'A' + 0xa);
-
-                    } else if (('a' <= *ptr) && (*ptr <= 'f')) {
-                        current_number = (current_number << 4) | (*ptr - 'a' + 0xa);
-
-                    } else if (*ptr == ',') {
-                        ptr_data = (uint8_t *)current_number;
-                        current_number = 0;
-
-                    } else {
-                        command = *ptr;
-                        current_number = 0;
-                    }
-                }
-                ptr++;
-            }
-        }
+void read_settings()
+{
+  //Read settings stored in flash. 16 pages used for wear-levelling, starts reading from last page.
+  for (int y = PAGE_15; y >= (PAGE_00); y -= PAGE_SIZE)
+  {
+    usersettings_t *config = (usersettings_t *)y;
+    if(config->a == 0)
+    {
+      //If we find a page with user settings, read them and stop looking.
+      bdelay = config->b;
+      slots = config->c;
+      mdelay = config->d;
+      cslot = config->e;
+      rdelay = config->f;
+      dmode = config->g;
+      break;
     }
+  }  
+}
+
+void safesettings()
+{
+  //Use known good settings if saved settings somehow out of range.
+  int f = 0;
+  if(bdelay < 1 || bdelay > 9)
+  {
+    bdelay = 5;
+    f++;
+  }
+  if(slots < 1 || slots > 9)
+  {
+    slots = 4; 
+    f++;
+  }
+  if(mdelay < 1 || mdelay > 9)
+  {
+    mdelay = 3;
+    f++;
+  }
+  if(cslot < 0 || cslot > 9)
+  {
+    cslot = 0;
+    f++;
+  }
+  if(rdelay < 1 || rdelay > 3)
+  {
+    rdelay = 1;
+    f++;
+  }
+  if(dmode < 0 || dmode > 1)
+  {
+    dmode = 0;
+    f++;
+  }
+  if(f)
+  {
+    write_settings();
+  }
+}
+
+void write_settings()
+{
+   //Copy settings into an array for easier page writing.   
+   usersettings_t config;
+   uint32_t usersettingarray[16];
+   config.a = 0;
+   config.b = bdelay;
+   config.c = slots;
+   config.d = mdelay;
+   config.e = cslot;
+   config.f = rdelay;
+   config.g = dmode;
+   memcpy(usersettingarray, &config, sizeof(usersettings_t));
+
+   //Check if all pages used, erase all if true.
+   if(LAST_PAGE->a == 0)
+   {
+     flash_erase_row((uint32_t *)PAGE_00);
+     flash_erase_row((uint32_t *)PAGE_04);
+     flash_erase_row((uint32_t *)PAGE_08);
+     flash_erase_row((uint32_t *)PAGE_12);
+   }
+
+   //Store settings in flash. 16 pages used for wear-levelling, starts reading from first page.
+   for (int y = PAGE_00; y <= (PAGE_15); y += PAGE_SIZE)
+   {
+     usersettings_t *flash_config = (usersettings_t *)y;
+     if(flash_config->a == 0xFF)
+     {
+       //If we find a page with no user settings, write them and stop looking.
+       flash_write_words((uint32_t *)y, usersettingarray, 16);
+       break;
+     }
+   }   
 }
