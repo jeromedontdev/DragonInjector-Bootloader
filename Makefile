@@ -1,4 +1,4 @@
-BOARD=zero
+BOARD=dragoninjector
 -include Makefile.user
 include boards/$(BOARD)/board.mk
 CC=arm-none-eabi-gcc
@@ -87,7 +87,7 @@ SELF_SOURCES = $(COMMON_SRC) \
 OBJECTS = $(patsubst src/%.c,$(BUILD_PATH)/%.o,$(SOURCES))
 SELF_OBJECTS = $(patsubst src/%.c,$(BUILD_PATH)/%.o,$(SELF_SOURCES)) $(BUILD_PATH)/selfdata.o
 
-NAME="DragonInjector_UF2_Bootloader_V1_1"
+NAME=$(DI_BOOTLOADER_VERSION)
 EXECUTABLE=$(BUILD_PATH)/$(NAME).bin
 SELF_EXECUTABLE=$(BUILD_PATH)/Update_$(NAME).uf2
 SELF_EXECUTABLE_INO=$(BUILD_PATH)/Update_$(NAME).ino

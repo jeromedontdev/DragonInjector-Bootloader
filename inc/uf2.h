@@ -54,7 +54,7 @@
 // Support the UART (real serial port, not USB)
 #define USE_UART 0
 // Support Human Interface Device (HID) - serial, flashing and debug
-#define USE_HID 0 // 788 bytes
+#define USE_HID 1 // 788 bytes
 // Expose HID via WebUSB
 #define USE_WEBUSB 0
 // Doesn't yet disable code, just enumeration

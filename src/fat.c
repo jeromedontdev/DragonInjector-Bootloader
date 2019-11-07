@@ -55,26 +55,21 @@ struct TextFile {
 #define STR0(x) #x
 #define STR(x) STR0(x)
 const char infoUf2File[] = //
-    "DragonInjector" "\r\n"
 	DI_BOOTLOADER_VERSION;
 
 #if USE_FAT
 #if USE_INDEX_HTM
 const char indexFile[] = //
-    "<!doctype html>\n"
-    "<html>"
-    "<body>"
-    "<script>\n"
-    "location.replace(\"" INDEX_URL "\");\n"
-    "</script>"
-    "</body>"
-    "</html>\n";
+    "<!doctype html>"
+    "<script>"
+    "location.replace(\"" INDEX_URL "\");"
+    "</script>";
 #endif
 
 // WARNING -- code presumes only one NULL .content for .UF2 file
 //            and requires it be the last element of the array
 static const struct TextFile info[] = {
-    {.name = "INFO_UF2TXT", .content = infoUf2File},
+    {.name = "DI_INFO TXT", .content = infoUf2File},
 #if USE_INDEX_HTM
     {.name = "INDEX   HTM", .content = indexFile},
 #endif
