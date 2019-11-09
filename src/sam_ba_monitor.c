@@ -34,20 +34,13 @@ uint32_t i;
 uint8_t data[SIZEBUFMAX + 1];
 
 char cmd[SIZEBUFMAX];
-
-uint8_t bdelay = 5;				// Default reboot to bootloader delay in seconds.
-uint8_t slots = 4;				// Default multi-payload slot limit.
-uint8_t mdelay = 3;				// Default hold delay for mode switch in seconds.
-uint8_t cslot = 0;				// Default selected payload slot. 0 = Single, 1-8 = Multi.
-uint8_t rdelay = 1;				// Default hold delay for pre-RCM payload switch in seconds.
-uint8_t dmode = 0;				// Alternate dual-payload SOP, boot slot 01 normally, boot slot 02 if cap button held.
   
-char bdelay_argument[2] = {'\0', '\0'};
-char slots_argument[2] = {'\0', '\0'};
-char mdelay_argument[2] = {'\0', '\0'};
-char cslot_argument[2] = {'\0', '\0'};
-char rdelay_argument[2] = {'\0', '\0'};
-char dmode_argument[2] = {'\0', '\0'};
+char bdelay_argument[2] = {'5', '\0'};	// Default reboot to bootloader delay in seconds.
+char slots_argument[2] = {'4', '\0'};	// Default multi-payload slot limit.
+char mdelay_argument[2] = {'3', '\0'};	// Default hold delay for mode switch in seconds.
+char cslot_argument[2] = {'0', '\0'};	// Default selected payload slot. 0 = Single, 1-8 = Multi.
+char rdelay_argument[2] = {'1', '\0'};	// Default hold delay for pre-RCM payload switch in seconds.
+char dmode_argument[2] = {'0', '\0'};	// Alternate dual-payload SOP, boot slot 01 normally, boot slot 02 if cap button held.
   
 char bdelay_command[] = "bdelay";
 char slots_command[] = "slots";
@@ -59,6 +52,8 @@ char reboot_command[] = "reboot";
 char readall_command[] = "readall";
 char freset_command[] = "freset";
 char commands_command[] = "commands";
+char read_text[] = "Read ";
+char write_text[] = "Wrote ";
   
 #define PAGE_00 0xFC00
 #define PAGE_01 0xFC40
@@ -117,12 +112,11 @@ void sam_ba_monitor_run(void) {
 				if (data[strlen(bdelay_command)+1] >= '1' && data[strlen(bdelay_command)+1] <= '9')
 				{
 					bdelay_argument[0] = data[strlen(bdelay_command)+1];
-					bdelay = bdelay_argument[0] - 0x30;
-					result_str = "Wrote ";
+					result_str = write_text;
 				}
 				else
 				{
-					result_str = "Read ";
+					result_str = read_text;
 				}
 				write_settings();
 				serial_print(5, result_str, bdelay_command, " = ", bdelay_argument, "\n\r");
@@ -132,12 +126,11 @@ void sam_ba_monitor_run(void) {
 				if (data[strlen(slots_command)+1] >= '1' && data[strlen(slots_command)+1] <= '9')
 				{
 					slots_argument[0] = data[strlen(slots_command)+1];
-					slots = slots_argument[0] - 0x30;
-					result_str = "Wrote ";
+					result_str = write_text;
 				}
 				else
 				{
-					result_str = "Read ";
+					result_str = read_text;
 				}
 				write_settings();
 				serial_print(5, result_str, slots_command, " = ", slots_argument, "\n\r");
@@ -147,12 +140,11 @@ void sam_ba_monitor_run(void) {
 				if (data[strlen(mdelay_command)+1] >= '1' && data[strlen(mdelay_command)+1] <= '9')
 				{
 					mdelay_argument[0] = data[strlen(mdelay_command)+1];
-					mdelay = mdelay_argument[0] - 0x30;
-					result_str = "Wrote ";
+					result_str = write_text;
 				}
 				else
 				{
-					result_str = "Read ";
+					result_str = read_text;
 				}
 				write_settings();
 				serial_print(5, result_str, mdelay_command, " = ", mdelay_argument, "\n\r");
@@ -162,16 +154,15 @@ void sam_ba_monitor_run(void) {
 				if (data[strlen(cslot_command)+1] >= '1' && data[strlen(cslot_command)+1] <= '9')
 				{
 					cslot_argument[0] = data[strlen(cslot_command)+1];
-					cslot = cslot_argument[0] - 0x30;
-					if(cslot > slots)
+					if(cslot_argument[0] > slots_argument[0])
 					{
-						cslot = slots;
+						cslot_argument[0] = slots_argument[0];
 					}
-					result_str = "Wrote ";					
+					result_str = write_text;					
 				}
 				else
 				{
-					result_str = "Read ";
+					result_str = read_text;
 				}
 				write_settings();
 				serial_print(5, result_str, cslot_command, " = ", cslot_argument, "\n\r");
@@ -181,12 +172,11 @@ void sam_ba_monitor_run(void) {
 				if (data[strlen(rdelay_command)+1] >= '1' && data[strlen(rdelay_command)+1] <= '9')
 				{
 					rdelay_argument[0] = data[strlen(rdelay_command)+1];
-					rdelay = rdelay_argument[0] - 0x30;
-					result_str = "Wrote ";
+					result_str = write_text;
 				}
 				else
 				{
-					result_str = "Read ";
+					result_str = read_text;
 				}
 				write_settings();
 				serial_print(5, result_str, rdelay_command, " = ", rdelay_argument, "\n\r");
@@ -196,12 +186,11 @@ void sam_ba_monitor_run(void) {
 				if (data[strlen(dmode_command)+1] >= '1' && data[strlen(dmode_command)+1] <= '9')
 				{
 					dmode_argument[0] = data[strlen(dmode_command)+1];
-					dmode = dmode_argument[0] - 0x30;
-					result_str = "Wrote ";
+					result_str = write_text;
 				}
 				else
 				{
-					result_str = "Read ";
+					result_str = read_text;
 				}
 				write_settings();
 				serial_print(5, result_str, dmode_command, " = ", dmode_argument, "\n\r");
@@ -214,29 +203,29 @@ void sam_ba_monitor_run(void) {
 			}		
 			else if (strncmp(data, readall_command, sizeof(strlen(readall_command))) == 0)
 			{			   
-				serial_print(5, "Read ", bdelay_command, " = ", bdelay_argument, "\n\r");
-				serial_print(5, "Read ", slots_command, " = ", slots_argument, "\n\r");
-				serial_print(5, "Read ", mdelay_command, " = ", mdelay_argument, "\n\r");
-				serial_print(5, "Read ", cslot_command, " = ", cslot_argument, "\n\r");
-				serial_print(5, "Read ", rdelay_command, " = ", rdelay_argument, "\n\r");
-				serial_print(5, "Read ", dmode_command, " = ", dmode_argument, "\n\r");
+				serial_print(5, read_text, bdelay_command, " = ", bdelay_argument, "\n\r");
+				serial_print(5, read_text, slots_command, " = ", slots_argument, "\n\r");
+				serial_print(5, read_text, mdelay_command, " = ", mdelay_argument, "\n\r");
+				serial_print(5, read_text, cslot_command, " = ", cslot_argument, "\n\r");
+				serial_print(5, read_text, rdelay_command, " = ", rdelay_argument, "\n\r");
+				serial_print(5, read_text, dmode_command, " = ", dmode_argument, "\n\r");
 			}		
 			else if (strncmp(data, freset_command, sizeof(strlen(freset_command))) == 0)
-			{			   
-				bdelay = 5;
-				slots = 4; 
-				mdelay = 3;
-				cslot = 0;
-				rdelay = 1;
-				dmode = 0;
+			{			
+				bdelay_argument[0] = '5';
+				slots_argument[0] = '4';
+				mdelay_argument[0] = '3';
+				cslot_argument[0] = '0';
+				rdelay_argument[0] = '1';
+				dmode_argument[0] = '0';
 				write_settings();
 				read_settings();
-				serial_print(5, "Wrote ", bdelay_command, " = ", bdelay_argument, "\n\r");
-				serial_print(5, "Wrote ", slots_command, " = ", slots_argument, "\n\r");
-				serial_print(5, "Wrote ", mdelay_command, " = ", mdelay_argument, "\n\r");
-				serial_print(5, "Wrote ", cslot_command, " = ", cslot_argument, "\n\r");
-				serial_print(5, "Wrote ", rdelay_command, " = ", rdelay_argument, "\n\r");
-				serial_print(5, "Wrote ", dmode_command, " = ", dmode_argument, "\n\r");			   
+				serial_print(5, write_text, bdelay_command, " = ", bdelay_argument, "\n\r");
+				serial_print(5, write_text, slots_command, " = ", slots_argument, "\n\r");
+				serial_print(5, write_text, mdelay_command, " = ", mdelay_argument, "\n\r");
+				serial_print(5, write_text, cslot_command, " = ", cslot_argument, "\n\r");
+				serial_print(5, write_text, rdelay_command, " = ", rdelay_argument, "\n\r");
+				serial_print(5, write_text, dmode_command, " = ", dmode_argument, "\n\r");			   
 			}		
 			else if (strncmp(data, commands_command, sizeof(strlen(commands_command))) == 0)
 			{		
@@ -283,34 +272,34 @@ void safe_settings()
 {
 	//Use known good settings if saved settings somehow out of range.
 	int f = 0;
-	if(bdelay < 1 || bdelay > 9)
+	if(bdelay_argument[0] < '1' || bdelay_argument[0] > '9')
 	{
-		bdelay = 5;
+		bdelay_argument[0] = '5';
 		f++;
 	}
-	if(slots < 1 || slots > 9)
+	if(slots_argument[0] < '1' || slots_argument[0] > '9')
 	{
-		slots = 4; 
+		slots_argument[0] = '4';
 		f++;
 	}
-	if(mdelay < 1 || mdelay > 9)
+	if(mdelay_argument[0] < '1' || mdelay_argument[0] > '9')
 	{
-		mdelay = 3;
+		mdelay_argument[0] = '4';
 		f++;
 	}
-	if(cslot < 0 || cslot > 9)
+	if(cslot_argument[0] < '0' || cslot_argument[0] > '9')
 	{
-		cslot = 0;
+		cslot_argument[0] = '4';
 		f++;
 	}
-	if(rdelay < 1 || rdelay > 3)
+	if(rdelay_argument[0] < '1' || rdelay_argument[0] > '3')
 	{
-		rdelay = 1;
+		rdelay_argument[0] = '4';
 		f++;
 	}
-	if(dmode < 0 || dmode > 1)
+	if(dmode_argument[0] < '0' || dmode_argument[0] > '1')
 	{
-		dmode = 0;
+		dmode_argument[0] = '4';
 		f++;
 	}
 	if(f)
@@ -325,12 +314,12 @@ void write_settings()
 	usersettings_t config;
 	uint32_t usersettingarray[16];
 	config.a = 0;
-	config.b = bdelay;
-	config.c = slots;
-	config.d = mdelay;
-	config.e = cslot;
-	config.f = rdelay;
-	config.g = dmode;
+	config.b = bdelay_argument[0] - 0x30;
+	config.c = slots_argument[0] - 0x30;
+	config.d = mdelay_argument[0] - 0x30;
+	config.e = cslot_argument[0] - 0x30;
+	config.f = rdelay_argument[0] - 0x30;
+	config.g = dmode_argument[0] - 0x30;
 	memcpy(usersettingarray, &config, sizeof(usersettings_t));
 
 	//Check if all pages used, erase all if true.
