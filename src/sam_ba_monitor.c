@@ -121,7 +121,7 @@ void sam_ba_monitor_run(void) {
 		if (data[0] && *data != '\r')
 		{
 			const char *result_str = "";
-			if (strncmp(data, bdelay_command, sizeof(strlen(bdelay_command))) == 0)
+			if (strncmp(data, bdelay_command, strlen(bdelay_command)) == 0)
 			{   
 				if (data[strlen(bdelay_command)+1] >= '1' && data[strlen(bdelay_command)+1] <= '9')
 				{
@@ -135,7 +135,7 @@ void sam_ba_monitor_run(void) {
 				write_settings();
 				serial_print(5, result_str, bdelay_command, " = ", bdelay_argument, "\n\r");
 			}
-			else if (strncmp(data, slots_command, sizeof(strlen(slots_command))) == 0)
+			else if (strncmp(data, slots_command, strlen(slots_command)) == 0)
 			{   
 				if (data[strlen(slots_command)+1] >= '1' && data[strlen(slots_command)+1] <= '9')
 				{
@@ -149,7 +149,7 @@ void sam_ba_monitor_run(void) {
 				write_settings();
 				serial_print(5, result_str, slots_command, " = ", slots_argument, "\n\r");
 			}
-			else if (strncmp(data, mdelay_command, sizeof(strlen(mdelay_command))) == 0)
+			else if (strncmp(data, mdelay_command, strlen(mdelay_command)) == 0)
 			{   
 				if (data[strlen(mdelay_command)+1] >= '1' && data[strlen(mdelay_command)+1] <= '9')
 				{
@@ -163,7 +163,7 @@ void sam_ba_monitor_run(void) {
 				write_settings();
 				serial_print(5, result_str, mdelay_command, " = ", mdelay_argument, "\n\r");
 			}
-			else if (strncmp(data, cslot_command, sizeof(strlen(cslot_command))) == 0)
+			else if (strncmp(data, cslot_command, strlen(cslot_command)) == 0)
 			{   
 				if (data[strlen(cslot_command)+1] >= '0' && data[strlen(cslot_command)+1] <= '9')
 				{
@@ -181,7 +181,7 @@ void sam_ba_monitor_run(void) {
 				write_settings();
 				serial_print(5, result_str, cslot_command, " = ", cslot_argument, "\n\r");
 			}
-			else if (strncmp(data, rdelay_command, sizeof(strlen(rdelay_command))) == 0)
+			else if (strncmp(data, rdelay_command, strlen(rdelay_command)) == 0)
 			{   
 				if (data[strlen(rdelay_command)+1] >= '1' && data[strlen(rdelay_command)+1] <= '3')
 				{
@@ -195,7 +195,7 @@ void sam_ba_monitor_run(void) {
 				write_settings();
 				serial_print(5, result_str, rdelay_command, " = ", rdelay_argument, "\n\r");
 			}	
-			else if (strncmp(data, dmode_command, sizeof(strlen(dmode_command))) == 0)
+			else if (strncmp(data, dmode_command, strlen(dmode_command)) == 0)
 			{   
 				if (data[strlen(dmode_command)+1] >= '0' && data[strlen(dmode_command)+1] <= '1')
 				{
@@ -209,13 +209,13 @@ void sam_ba_monitor_run(void) {
 				write_settings();
 				serial_print(5, result_str, dmode_command, " = ", dmode_argument, "\n\r");
 			}		
-			else if (strncmp(data, reboot_command, sizeof(strlen(reboot_command))) == 0)
+			else if (strncmp(data, reboot_command, strlen(reboot_command)) == 0)
 			{			
 				cdc_write_buf("Rebooting...", 12);
 				delay(20);
 				NVIC_SystemReset();
 			}		
-			else if (strncmp(data, readall_command, sizeof(strlen(readall_command))) == 0)
+			else if (strncmp(data, readall_command, strlen(readall_command)) == 0)
 			{			   
 				serial_print(5, read_text, bdelay_command, " = ", bdelay_argument, "\n\r");
 				serial_print(5, read_text, slots_command, " = ", slots_argument, "\n\r");
@@ -224,7 +224,7 @@ void sam_ba_monitor_run(void) {
 				serial_print(5, read_text, rdelay_command, " = ", rdelay_argument, "\n\r");
 				serial_print(5, read_text, dmode_command, " = ", dmode_argument, "\n\r");
 			}		
-			else if (strncmp(data, freset_command, sizeof(strlen(freset_command))) == 0)
+			else if (strncmp(data, freset_command, strlen(freset_command)) == 0)
 			{			
 				bdelay_argument[0] = '5';
 				slots_argument[0] = '4';
@@ -241,7 +241,7 @@ void sam_ba_monitor_run(void) {
 				serial_print(5, write_text, rdelay_command, " = ", rdelay_argument, "\n\r");
 				serial_print(5, write_text, dmode_command, " = ", dmode_argument, "\n\r");			   
 			}		
-			else if (strncmp(data, commands_command, sizeof(strlen(commands_command))) == 0)
+			else if (strncmp(data, commands_command, strlen(commands_command)) == 0)
 			{		
 				serial_print(3, "  ", bdelay_command, "\n\r");
 				serial_print(3, "  ", slots_command, "\n\r");
