@@ -31,6 +31,8 @@
 #include <stdarg.h>
 
 uint32_t i;
+uint16_t write_blink_interval = 5000;
+uint16_t write_blink_timer = 0;
 uint8_t data[SIZEBUFMAX + 1];
 
 char cmd[SIZEBUFMAX];
@@ -38,7 +40,7 @@ char cmd[SIZEBUFMAX];
 char bdelay_argument[2] = {'5', '\0'};	// Default reboot to bootloader delay in seconds.
 char slots_argument[2] = {'4', '\0'};	// Default multi-payload slot limit.
 char mdelay_argument[2] = {'3', '\0'};	// Default hold delay for mode switch in seconds.
-char cslot_argument[2] = {'0', '\0'};	// Default selected payload slot. 0 = Single, 1-8 = Multi.
+char cslot_argument[2] = {'0', '\0'};	// Default selected payload slot. 0 = Single, 1-9 = Multi.
 char rdelay_argument[2] = {'1', '\0'};	// Default hold delay for pre-RCM payload switch in seconds.
 char dmode_argument[2] = {'0', '\0'};	// Alternate dual-payload SOP, boot slot 01 normally, boot slot 02 if cap button held.
   
@@ -89,6 +91,7 @@ typedef struct __attribute__((__packed__)) usersettings
 // Serial CLI.
 
 void sam_ba_monitor_run(void) {
+	PINOP(PIN_PA08, DIRSET);
 	read_settings();
 	safe_settings();
     while (1) {
@@ -98,6 +101,17 @@ void sam_ba_monitor_run(void) {
 		for (i = 0; i < SIZEBUFMAX; i++)
 		{
 			data[i] = 0;
+		}
+		
+		if(write_blink_timer > 0)
+		{
+			write_blink_timer--;
+			PINOP(PIN_PA08, OUTSET);
+			LED_MSC_OFF();
+		}
+		else
+		{			
+			PINOP(PIN_PA08, OUTCLR);
 		}
 		
 		// Read USART to buffer.
@@ -151,7 +165,7 @@ void sam_ba_monitor_run(void) {
 			}
 			else if (strncmp(data, cslot_command, sizeof(strlen(cslot_command))) == 0)
 			{   
-				if (data[strlen(cslot_command)+1] >= '1' && data[strlen(cslot_command)+1] <= '9')
+				if (data[strlen(cslot_command)+1] >= '0' && data[strlen(cslot_command)+1] <= '9')
 				{
 					cslot_argument[0] = data[strlen(cslot_command)+1];
 					if(cslot_argument[0] > slots_argument[0])
@@ -169,7 +183,7 @@ void sam_ba_monitor_run(void) {
 			}
 			else if (strncmp(data, rdelay_command, sizeof(strlen(rdelay_command))) == 0)
 			{   
-				if (data[strlen(rdelay_command)+1] >= '1' && data[strlen(rdelay_command)+1] <= '9')
+				if (data[strlen(rdelay_command)+1] >= '1' && data[strlen(rdelay_command)+1] <= '3')
 				{
 					rdelay_argument[0] = data[strlen(rdelay_command)+1];
 					result_str = write_text;
@@ -183,7 +197,7 @@ void sam_ba_monitor_run(void) {
 			}	
 			else if (strncmp(data, dmode_command, sizeof(strlen(dmode_command))) == 0)
 			{   
-				if (data[strlen(dmode_command)+1] >= '1' && data[strlen(dmode_command)+1] <= '9')
+				if (data[strlen(dmode_command)+1] >= '0' && data[strlen(dmode_command)+1] <= '1')
 				{
 					dmode_argument[0] = data[strlen(dmode_command)+1];
 					result_str = write_text;
@@ -239,11 +253,12 @@ void sam_ba_monitor_run(void) {
 				serial_print(3, "  ", readall_command, "\n\r");
 				serial_print(3, "  ", freset_command, "\n\r");
 				serial_print(3, "  ", commands_command, "\n\r");	   
-			}			   
+			}				
 			else
 			{
 				serial_print(4, "Invalid command. Send '", commands_command, "' for list.", "\n\r");
 			} 
+			write_blink_timer = write_blink_interval;
 		}
 	}
 }
@@ -284,22 +299,22 @@ void safe_settings()
 	}
 	if(mdelay_argument[0] < '1' || mdelay_argument[0] > '9')
 	{
-		mdelay_argument[0] = '4';
+		mdelay_argument[0] = '3';
 		f++;
 	}
 	if(cslot_argument[0] < '0' || cslot_argument[0] > '9')
 	{
-		cslot_argument[0] = '4';
+		cslot_argument[0] = '0';
 		f++;
 	}
 	if(rdelay_argument[0] < '1' || rdelay_argument[0] > '3')
 	{
-		rdelay_argument[0] = '4';
+		rdelay_argument[0] = '1';
 		f++;
 	}
 	if(dmode_argument[0] < '0' || dmode_argument[0] > '1')
 	{
-		dmode_argument[0] = '4';
+		dmode_argument[0] = '0';
 		f++;
 	}
 	if(f)
