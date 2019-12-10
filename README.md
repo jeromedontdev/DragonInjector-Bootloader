@@ -1,3 +1,8 @@
+# DragonInjector Bootloader
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+<a href="https://discord.gg/ez2HCgK"><img src="https://discordapp.com/api/guilds/488214231540301826/embed.png" alt="Discord Server" /></a>
+
 ## This fork is a work in progress that adds support for the ATSAMD21E16C WLCSP35 variant as part of the DragonInjector project.
 
 To build, run `make BOARD=dragoninjector`.
